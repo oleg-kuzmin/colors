@@ -1,0 +1,69 @@
+@mixin mobile {
+  @media screen and (width >= 320px) {
+    @content;
+  }
+}
+
+@mixin mobile-plus {
+  @media screen and (width >= 400px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (width >= 768px) {
+    @content;
+  }
+}
+
+@mixin tablet-plus {
+  @media screen and (width >= 1024px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (width >= 1280px) {
+    @content;
+  }
+}
+
+// @mixin content {
+//   width: calc(100% - 32px);
+//   max-width: 1216px;
+//   @include tablet-plus {
+//     width: calc(100% - 64px);
+//   }
+// }
+
+// @mixin extrabold($_fontSize, $_lineHeight, $_letterSpacing) {
+//   font-size: $_fontSize;
+//   font-style: normal;
+//   font-weight: 800;
+//   line-height: $_lineHeight;
+//   letter-spacing: $_letterSpacing;
+// }
+
+// @mixin bold($_fontSize, $_lineHeight, $_letterSpacing) {
+//   font-size: $_fontSize;
+//   font-style: normal;
+//   font-weight: 700;
+//   line-height: $_lineHeight;
+//   letter-spacing: $_letterSpacing;
+// }
+
+// @mixin semibold($_fontSize, $_lineHeight, $_letterSpacing) {
+//   font-size: $_fontSize;
+//   font-style: normal;
+//   font-weight: 600;
+//   line-height: $_lineHeight;
+//   letter-spacing: $_letterSpacing;
+// }
+
+// @mixin regular($_fontSize, $_lineHeight, $_letterSpacing) {
+//   font-size: $_fontSize;
+//   font-style: normal;
+//   font-weight: 400;
+//   line-height: $_lineHeight;
+//   letter-spacing: $_letterSpacing;
+// }
