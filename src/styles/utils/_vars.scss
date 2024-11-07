@@ -1,7 +1,11 @@
+// Fonts
+$font-main: 'Inter', sans-serif;
+
 // Colors
-$main-font: 'Inter', sans-serif;
-$main-background: #ffffff;
-$main-color: #1f2020;
+$background-main: #ffffff;
+$text-main: #1f2020;
+$ui-main: #7bb899;
+$ui-secondary: #f2f2f2;
 
 // Media
 $mobile-S: 320px;
@@ -12,4 +16,4 @@ $laptop: 1024px;
 $desktop: 1440px;
 
 // Effects
-$hover-time: 300ms;
+$hover-time: 200ms;

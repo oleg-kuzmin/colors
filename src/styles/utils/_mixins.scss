@@ -36,34 +36,34 @@
 //   }
 // }
 
-// @mixin extrabold($_fontSize, $_lineHeight, $_letterSpacing) {
+// @mixin font-extrabold($_fontSize, $_lineHeight, $_letterSpacing) {
 //   font-size: $_fontSize;
+//   line-height: $_lineHeight;
+//   letter-spacing: $_letterSpacing;
 //   font-style: normal;
 //   font-weight: 800;
-//   line-height: $_lineHeight;
-//   letter-spacing: $_letterSpacing;
 // }
 
-// @mixin bold($_fontSize, $_lineHeight, $_letterSpacing) {
+// @mixin font-bold($_fontSize, $_lineHeight, $_letterSpacing) {
 //   font-size: $_fontSize;
+//   line-height: $_lineHeight;
+//   letter-spacing: $_letterSpacing;
 //   font-style: normal;
 //   font-weight: 700;
-//   line-height: $_lineHeight;
-//   letter-spacing: $_letterSpacing;
 // }
 
-// @mixin semibold($_fontSize, $_lineHeight, $_letterSpacing) {
+// @mixin font-semibold($_fontSize, $_lineHeight, $_letterSpacing) {
 //   font-size: $_fontSize;
+//   line-height: $_lineHeight;
+//   letter-spacing: $_letterSpacing;
 //   font-style: normal;
 //   font-weight: 600;
-//   line-height: $_lineHeight;
-//   letter-spacing: $_letterSpacing;
 // }
 
-// @mixin regular($_fontSize, $_lineHeight, $_letterSpacing) {
-//   font-size: $_fontSize;
-//   font-style: normal;
-//   font-weight: 400;
-//   line-height: $_lineHeight;
-//   letter-spacing: $_letterSpacing;
-// }
+@mixin font-regular($_fontSize, $_lineHeight: 1, $_letterSpacing: normal) {
+  font-size: $_fontSize;
+  line-height: $_lineHeight;
+  letter-spacing: $_letterSpacing;
+  font-style: normal;
+  font-weight: 400;
+}

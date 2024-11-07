@@ -1,0 +1,7 @@
+@use '../utils' as *;
+
+.filters {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}

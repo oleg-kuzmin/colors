@@ -16,8 +16,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
   max-width: 1920px;
   margin: 0 auto;
-  background-color: $main-background;
-  font-family: 'Inter', sans-serif;
+  background-color: $background-main;
+  font-family: $font-main;
+  display: flex; //! temporarily
+  flex-direction: column; //! temporarily
+  justify-content: center; //! temporarily
+  align-items: center; //! temporarily
+  height: 100vh; //! temporarily
 }
 
 h1,
