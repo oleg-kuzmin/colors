@@ -22,6 +22,10 @@
     background-color: $ui-secondary;
     transition: background-color $hover;
     cursor: pointer;
+    @include effect-focus-main;
+    &:focus-visible {
+      border-radius: 40px;
+    }
 
     &:checked {
       background-color: $ui-main;
