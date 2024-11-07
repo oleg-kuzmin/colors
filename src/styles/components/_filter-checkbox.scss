@@ -11,7 +11,7 @@
     text-transform: uppercase;
     user-select: none;
     cursor: pointer;
-    @include font-regular(12px, 1, 0.06em);
+    @include font-regular(12px, 0.06em);
   }
 
   &__input {
@@ -21,7 +21,7 @@
     height: 22px;
     border-radius: 40px;
     background-color: $ui-secondary;
-    transition: background-color $hover-time;
+    transition: background-color $hover;
     cursor: pointer;
 
     &:checked {
@@ -40,7 +40,7 @@
       mask-position: 7px;
       mask-repeat: no-repeat;
       mask-size: 8px;
-      transition: mask-position $hover-time linear;
+      transition: mask-position $hover linear;
     }
 
     &:checked::before {

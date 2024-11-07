@@ -1,0 +1,15 @@
+@use '../utils' as *;
+
+.navigation {
+  &__list {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__link {
+    text-transform: uppercase;
+    @include font-regular(14px, 0.06em);
+    @include effect-hover-main;
+    @include effect-focus-main;
+  }
+}

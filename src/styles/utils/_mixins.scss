@@ -1,3 +1,5 @@
+@use './vars' as *;
+
 @mixin mobile {
   @media screen and (width >= 320px) {
     @content;
@@ -25,6 +27,21 @@
 @mixin desktop {
   @media screen and (width >= 1280px) {
     @content;
+  }
+}
+
+@mixin effect-focus-main {
+  &:focus-visible {
+    border-radius: 2px;
+    outline: $ui-main 2px solid;
+  }
+}
+
+@mixin effect-hover-main {
+  transition: color $hover;
+  user-select: none;
+  &:hover {
+    color: $ui-main;
   }
 }
 
@@ -60,10 +77,10 @@
 //   font-weight: 600;
 // }
 
-@mixin font-regular($_fontSize, $_lineHeight: 1, $_letterSpacing: normal) {
+@mixin font-regular($_fontSize, $_letterSpacing: normal, $_lineHeight: 1) {
   font-size: $_fontSize;
-  line-height: $_lineHeight;
   letter-spacing: $_letterSpacing;
+  line-height: $_lineHeight;
   font-style: normal;
   font-weight: 400;
 }
