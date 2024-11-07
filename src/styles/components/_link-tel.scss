@@ -1,0 +1,7 @@
+@use '../utils' as *;
+
+.link-tel {
+  @include font-medium(16px, -0.02em);
+  @include effect-hover-main;
+  @include effect-focus-main;
+}

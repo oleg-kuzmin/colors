@@ -1,3 +1,11 @@
+@mixin font-medium($_fontSize, $_letterSpacing: normal, $_lineHeight: 1) {
+  font-size: $_fontSize;
+  letter-spacing: $_letterSpacing;
+  line-height: $_lineHeight;
+  font-style: normal;
+  font-weight: 500;
+}
+
 @mixin font-regular($_fontSize, $_letterSpacing: normal, $_lineHeight: 1) {
   font-size: $_fontSize;
   letter-spacing: $_letterSpacing;
