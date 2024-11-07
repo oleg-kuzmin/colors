@@ -1,0 +1,16 @@
+@use './vars' as *;
+
+@mixin effect-focus-main {
+  &:focus-visible {
+    border-radius: 2px;
+    outline: $ui-main 2px solid;
+  }
+}
+
+@mixin effect-hover-main {
+  transition: color $hover;
+  user-select: none;
+  &:hover {
+    color: $ui-main;
+  }
+}
