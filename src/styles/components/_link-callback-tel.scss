@@ -1,16 +1,18 @@
 @use '../utils' as *;
 
 .link-callback-tel {
-  opacity: 0.3;
-  transition: opacity $hover;
-  @include font-regular(14px);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  @include effect-hover-main;
   @include effect-focus-main;
 
-  &:hover {
-    opacity: 1;
+  &__number {
+    @include font-medium(16px, -0.02em);
   }
 
-  &:focus-visible {
-    opacity: 1;
+  &__placeholder {
+    opacity: 0.3;
+    @include font-regular(14px);
   }
 }
