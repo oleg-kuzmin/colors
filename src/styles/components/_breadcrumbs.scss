@@ -1,0 +1,40 @@
+@use '../utils' as *;
+
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: $background-main;
+
+  &__element {
+    display: inline-flex;
+    align-items: center;
+    &:first-child {
+      &::before {
+        width: 0;
+        height: 0;
+        margin-right: 0;
+      }
+    }
+    &::before {
+      width: 3px;
+      height: 3px;
+      margin-right: 8px;
+      border-radius: 50%;
+      background-color: $background-main;
+      content: '';
+      opacity: 0.3;
+    }
+  }
+
+  &__link {
+    text-transform: uppercase;
+    opacity: 0.3;
+    transition: opacity $hover;
+    @include font-regular(10px, 0.06em);
+    &:hover {
+      color: $text-main;
+      opacity: 1;
+    }
+  }
+}
