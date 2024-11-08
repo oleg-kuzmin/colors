@@ -1,0 +1,18 @@
+@use '../utils' as *;
+
+.link-basket {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: $ui-main;
+  cursor: pointer;
+  transition: opacity $hover;
+  @include font-medium(12px, 0.06em);
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

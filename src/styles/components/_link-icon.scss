@@ -1,19 +1,24 @@
 @use '../utils' as *;
 
 .link-icon {
+  display: flex;
   position: relative;
-  font-size: 0;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   @include effect-hover-icon;
-
-  &_size_m {
+  @include effect-focus-main;
+  &_size_s {
     width: 20px;
     height: 20px;
   }
-
-  &_size_l {
+  &_size_m {
     width: 22px;
     height: 22px;
+  }
+  &_size_l {
+    width: 24px;
+    height: 24px;
   }
 
   &::before {
