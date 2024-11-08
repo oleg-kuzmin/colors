@@ -1,29 +1,23 @@
 import path from 'path';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import PugPlugin from 'pug-plugin';
 
 export default {
   entry: './src/index.js',
   output: {
-    filename: 'index.js',
+    filename: 'index.[contenthash:8].js',
     path: path.resolve('./build'),
   },
   module: {
     rules: [
       {
-        test: /\.js$/,
-        use: 'babel-loader',
-        exclude: '/node_modules/',
-      },
-      {
         test: /\.s?css$/i,
-        use: [MiniCssExtractPlugin.loader, 'css-loader', 'postcss-loader', 'sass-loader'],
+        use: ['css-loader', 'postcss-loader', 'sass-loader'],
       },
       {
-        test: /\.(png|jpe?g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|webp|svg)$/i,
         type: 'asset/resource',
         generator: {
-          filename: 'images/[hash][ext]',
+          filename: 'images/[hash:8][ext]',
         },
       },
     ],
@@ -34,11 +28,16 @@ export default {
     open: true,
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-    }),
-    new MiniCssExtractPlugin({
-      filename: 'index.css',
+    new PugPlugin({
+      entry: {
+        index: 'src/index.pug',
+      },
+      js: {
+        filename: 'js/[name].[contenthash:8].js',
+      },
+      css: {
+        filename: 'css/[name].[contenthash:8].css',
+      },
     }),
   ],
 };
