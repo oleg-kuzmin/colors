@@ -14,16 +14,16 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 1920px;
-  margin: 0 auto;
-  font-family: $font-main;
-  color: $text-main;
-  background-color: $background-main;
   display: flex; //! temporarily
   flex-direction: column; //! temporarily
-  justify-content: center; //! temporarily
   align-items: center; //! temporarily
+  justify-content: center; //! temporarily
+  max-width: 1920px;
   height: 100vh; //! temporarily
+  margin: 0 auto;
+  background-color: $background-main;
+  color: $text-main;
+  font-family: $font-main;
 }
 
 h1,

@@ -8,8 +8,8 @@
 
   &__label {
     text-transform: uppercase;
-    user-select: none;
     cursor: pointer;
+    user-select: none;
     @include font-regular(12px, 0.06em);
   }
 
@@ -20,8 +20,8 @@
     height: 22px;
     border-radius: 40px;
     background-color: $ui-secondary;
-    transition: background-color $hover;
     cursor: pointer;
+    transition: background-color $hover;
     @include effect-focus-main;
     &:focus-visible {
       border-radius: 40px;
@@ -35,10 +35,10 @@
       position: absolute;
       top: 0;
       left: 0;
-      content: '';
       width: 100%;
       height: 100%;
       background-color: currentColor;
+      content: '';
       mask-image: url('images/filter-checkbox-icon.svg');
       mask-position: 7px;
       mask-repeat: no-repeat;

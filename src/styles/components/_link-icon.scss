@@ -1,0 +1,18 @@
+@use '../utils' as *;
+
+.link-icon {
+  display: inline-block;
+  &_size_m {
+    width: 20px;
+    height: 20px;
+  }
+  &_size_l {
+    width: 22px;
+    height: 22px;
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
+  }
+}
