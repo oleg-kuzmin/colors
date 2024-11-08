@@ -1,11 +1,11 @@
-import path from 'path';
-import PugPlugin from 'pug-plugin';
+const path = require('path');
+const PugPlugin = require('pug-plugin');
 
-export default {
-  entry: './src/index.js',
+module.exports = {
+  entry: path.join(__dirname, 'src', 'index.js'),
   output: {
-    filename: 'index.[contenthash:8].js',
-    path: path.resolve('./build'),
+    path: path.join(__dirname, 'build'),
+    filename: 'index.[contenthash].js',
   },
   module: {
     rules: [
@@ -23,7 +23,7 @@ export default {
     ],
   },
   devServer: {
-    watchFiles: path.resolve('./src'),
+    watchFiles: path.join(__dirname, 'src'),
     compress: true,
     open: true,
   },
