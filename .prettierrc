@@ -1,0 +1,13 @@
+{
+  "importOrderSeparation": false,
+  "importOrderSortSpecifiers": true,
+  "plugins": ["@prettier/plugin-pug", "prettier-plugin-css-order"],
+  "cssDeclarationSorterOrder": "smacss",
+  "arrowParens": "avoid",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "semi": true,
+  "jsxSingleQuote": false,
+  "printWidth": 120,
+  "singleQuote": true
+}
