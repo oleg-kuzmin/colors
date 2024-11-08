@@ -14,3 +14,16 @@
     color: $ui-main;
   }
 }
+
+@mixin effect-hover-icon {
+  user-select: none;
+  &::before {
+    transition: opacity $hover;
+  }
+  &::after {
+    transition: opacity $hover;
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+}
