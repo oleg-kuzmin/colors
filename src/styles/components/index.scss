@@ -1,9 +1,10 @@
+@use './breadcrumbs';
 @use './filter-checkbox';
 @use './filters';
+@use './link-basket';
 @use './link-callback-tel';
+@use './link-icon';
 @use './logo';
 @use './navigation';
-@use './link-icon';
+@use './button-sort';
 @use './ui-icons';
-@use './link-basket';
-@use './breadcrumbs';

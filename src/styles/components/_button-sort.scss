@@ -1,0 +1,65 @@
+@use '../utils' as *;
+
+.button-sort {
+  display: flex;
+  gap: 4px;
+  border: none;
+  background-color: $background-main;
+  cursor: pointer;
+  @include effect-hover-main;
+  @include effect-focus-main;
+
+  &__text {
+    text-transform: uppercase;
+    @include font-medium(12px, 0.06em);
+  }
+
+  &__arrow {
+    width: 10px;
+    height: 10px;
+    background: url('./images/sort-arrow-icon.svg') no-repeat center / contain;
+  }
+}
+
+// .select-sort {
+//   -webkit-appearance: none; /* Стиль для Safari */
+//   -moz-appearance: none; /* Стиль для Firefox */
+//   appearance: none; /* Стиль для прочих браузеров */
+//   width: 250px;
+//   padding: 12px;
+//   border: none;
+//   outline: none;
+//   background-color: $background-main;
+//   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+//   font-size: 20px;
+// }
+
+// .select-container {
+//   position: relative;
+// }
+
+// .select-container::before {
+//   position: absolute;
+//   top: 0;
+//   right: 0;
+//   width: 20%;
+//   height: 100%;
+//   content: '';
+
+//   pointer-events: none;
+// }
+
+// .select-option:hover {
+//   background-color: $ui-main;
+// }
+
+// -webkit-appearance: none; /* Стиль для Safari */
+// -moz-appearance: none; /* Стиль для Firefox */
+// appearance: none; /* Стиль для прочих браузеров */
+// min-width: 195px;
+// padding: 5px 4px 5px 10px; /* Резервируем место под стрелку */
+// border: 1px solid red;
+// border-radius: 4px;
+// background: transparent url('./images/select-arrow-icon.svg') no-repeat right 10px center;
+// text-transform: uppercase;
+// @include font-medium(12px, 0.06em);
