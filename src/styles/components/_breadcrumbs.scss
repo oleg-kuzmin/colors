@@ -36,12 +36,13 @@
   &__link {
     text-transform: uppercase;
     opacity: 0.3;
-    transition:
-      opacity $hover,
-      color $hover;
+    transition: opacity $hover;
     @include font-regular(10px, 0.06em);
+    @include effect-focus-main;
     &:hover {
-      color: $text-main;
+      opacity: 1;
+    }
+    &:focus-visible {
       opacity: 1;
     }
   }
