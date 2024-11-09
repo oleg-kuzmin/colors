@@ -1,9 +1,0 @@
-@use './media' as *;
-
-@mixin content-mobile {
-  width: calc(100% - 48px);
-  max-width: 1216px;
-  @include desktop {
-    width: calc(100% - 64px);
-  }
-}

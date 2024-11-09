@@ -1,0 +1,62 @@
+@use '../utils' as *;
+
+.header {
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: calc(100% - 48px);
+    min-height: 64px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba($color: $text-main, $alpha: 0.06);
+    @include media-laptop-L {
+      justify-content: start;
+      max-width: calc(100% - 128px);
+      min-height: 104px;
+    }
+  }
+
+  &__button-burger {
+    @include media-laptop {
+      display: none;
+    }
+  }
+
+  &__logo {
+    @include media-laptop-L {
+      margin-right: 171px;
+    }
+  }
+
+  &__navigation {
+    display: none;
+    @include media-laptop {
+      display: revert;
+    }
+    @include media-laptop-L {
+      margin-right: auto;
+    }
+  }
+
+  &__link-callback-tel {
+    display: none;
+    @include media-laptop-L {
+      display: flex;
+      margin-right: 117px;
+    }
+  }
+
+  &__link-basket {
+    @include media-laptop {
+      display: none;
+    }
+  }
+
+  &__ui-icons {
+    display: none;
+    @include media-laptop {
+      display: flex;
+    }
+  }
+}

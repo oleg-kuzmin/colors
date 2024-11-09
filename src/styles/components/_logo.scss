@@ -2,5 +2,9 @@
 
 .logo {
   display: inline-block;
-  height: 26px;
+  height: 19px;
+
+  @include media-desktop {
+    height: 26px;
+  }
 }

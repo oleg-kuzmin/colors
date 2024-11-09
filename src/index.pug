@@ -5,4 +5,38 @@ html(lang='ru')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Краски
   body
-    script(src='./index.js', defer='defer') 
+    header.header
+      .header__content
+        button.button-burger.header__button-burger
+          span.button-burger__line
+          span.button-burger__line
+          span.button-burger__line
+        img.logo.header__logo(src='./images/logo.svg', alt='Логотип Colors')
+        nav.navigation.header__navigation
+          ul.navigation__list
+            li
+              a.navigation__link(href='#') Продукты
+            li
+              a.navigation__link(href='#') Цвета
+            li
+              a.navigation__link(href='#') Вдохновение
+            li
+              a.navigation__link(href='#') Советы
+            li
+              a.navigation__link(href='#') Найти магазин
+        a.link-callback-tel.header__link-callback-tel(href='#')
+          span.link-callback-tel__number +7 (495) 221-77-69
+          span.link-callback-tel__placeholder Заказать звонок
+        ul.ui-icons.header__ui-icons
+          li
+            a.link-icon.link-icon_size_s.link-icon_bg_search(tabindex='0', aria-label='Поиск') 
+          li
+            a.link-icon.link-icon_size_m.link-icon_bg_profile(tabindex='0', aria-label='Профиль') 
+          li
+            a.link-icon.link-icon_size_m.link-icon_bg_like(tabindex='0', aria-label='Избранное') 
+          li
+            a.link-basket(tabindex='0', aria-label='Корзина') 4
+
+        a.link-basket.header__link-basket(tabindex='0', aria-label='Корзина') 5
+
+  script(src='./index.js', defer='defer') 

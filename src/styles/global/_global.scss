@@ -14,16 +14,12 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  display: flex; //! temporarily
-  flex-direction: column; //! temporarily
-  align-items: center; //! temporarily
-  justify-content: center; //! temporarily
   max-width: 1920px;
-  height: 100vh; //! temporarily
   margin: 0 auto;
   background-color: $background-main;
   color: $text-main;
   font-family: $font-main;
+  min-height: 200vh; //!
 }
 
 h1,

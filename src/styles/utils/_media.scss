@@ -36,8 +36,8 @@
   }
 }
 
-@mixin desktop {
-  @media (width >= $laptop-L) {
+@mixin media-desktop {
+  @media (width >= $desktop) {
     @content;
   }
 }

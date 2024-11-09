@@ -5,6 +5,7 @@
   align-items: center;
   justify-content: center;
   width: 24px;
+  min-width: 24px;
   height: 24px;
   border-radius: 50%;
   background-color: $ui-main;
@@ -13,6 +14,10 @@
   @include font-medium(12px, 0.06em);
 
   &:hover {
-    opacity: 0.8;
+    opacity: 0.7;
+  }
+  &:focus-visible {
+    outline: 1px solid $text-main;
+    opacity: 0.7;
   }
 }

@@ -1,0 +1,16 @@
+@use '../utils' as *;
+
+.button-burger {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border: none;
+  background-color: transparent;
+  @include effect-focus-main;
+
+  &__line {
+    width: 24px;
+    height: 2px;
+    background-color: $text-main;
+  }
+}

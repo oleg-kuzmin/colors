@@ -1,11 +1,13 @@
 @use './breadcrumbs';
+@use './button-burger';
+@use './button-sort';
 @use './filter-checkbox';
 @use './filters';
 @use './link-basket';
 @use './link-callback-tel';
 @use './link-icon';
 @use './logo';
-@use './navigation';
-@use './button-sort';
-@use './ui-icons';
 @use './modal-sort';
+@use './navigation';
+@use './ui-icons';
+@use './header';
