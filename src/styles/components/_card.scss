@@ -1,11 +1,74 @@
 @use '../utils' as *;
 
 .card {
+  display: flex;
+  flex-direction: column;
   width: 156px;
-  height: 306px;
-  background-color: $ui-main;
+  height: 305px;
+  border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+  background-color: $background-main;
   @include media-laptop-L {
     width: 278px;
-    height: 392px;
+    height: 393px;
+  }
+
+  &__image {
+    height: 156px;
+    object-fit: cover;
+    vertical-align: top;
+    @include media-laptop-L {
+      height: 278px;
+    }
+  }
+
+  &__description {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    line-clamp: 3;
+    margin: 17px 0 19px;
+    overflow: hidden;
+    @include font-light(16px, 0.02em, 1.12);
+    @include media-laptop-L {
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__price {
+    @include font-semibold(16px);
+    &::after {
+      content: ' ₽';
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 24px;
+    border: none;
+    border-radius: 6px;
+    background-image: url('./images/plus-icon.svg');
+    background-position: center;
+    background-size: 16px;
+    background-repeat: no-repeat;
+    background-color: $ui-secondary;
+    cursor: pointer;
+    @include effect-hover-button;
+    @include effect-focus-main;
+    @include media-laptop-L {
+      width: 80px;
+      height: 32px;
+      background-size: 20px;
+    }
   }
 }

@@ -2,6 +2,22 @@
 
 html {
   scroll-behavior: smooth;
+  scrollbar-color: $ui-main rgba(255, 255, 255, 0.1);
+  scrollbar-width: thin;
+}
+
+html::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+html::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+html::-webkit-scrollbar-thumb {
+  border-radius: 20px;
+  background-color: $ui-main;
 }
 
 * {
@@ -15,7 +31,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   max-width: 1920px;
-  // min-height: 200vh; //!
   margin: 0 auto;
   background-color: $background-main;
   color: $text-main;
