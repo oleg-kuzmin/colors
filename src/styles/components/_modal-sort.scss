@@ -1,0 +1,35 @@
+@use '../utils' as *;
+
+.modal-sort {
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  background-color: gold;
+
+  &__button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 47px;
+    padding: 0 24px;
+    border: none;
+    background-color: $background-main;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color $hover;
+    @include font-medium(12px, 0.06em);
+    @include effect-hover-main;
+    @include effect-focus-main;
+
+    &_active {
+      background-color: $ui-main;
+      &:hover {
+        color: $text-main;
+      }
+      &:focus-visible {
+        border-radius: 2px;
+        outline: red 2px solid;
+      }
+    }
+  }
+}
