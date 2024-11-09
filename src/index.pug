@@ -36,7 +36,19 @@ html(lang='ru')
             a.link-icon.link-icon_size_m.link-icon_bg_like(tabindex='0', aria-label='Избранное') 
           li
             a.link-basket(tabindex='0', aria-label='Корзина') 4
+        a.link-basket.header__link-basket(tabindex='0', aria-label='Корзина') 4
 
-        a.link-basket.header__link-basket(tabindex='0', aria-label='Корзина') 5
+    main
+      .hero
+        ul.breadcrumbs.hero__breadcrumbs
+          li.breadcrumbs__element
+            a.breadcrumbs__link(href='#') Главная
+          li.breadcrumbs__element
+            a.breadcrumbs__link(href='#') Продукты
+          li.breadcrumbs__element
+            a.breadcrumbs__link(href='#') Краски
+        h1.hero__title Краски
+        p.hero__subtitle Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!
+        .hero__slide
 
   script(src='./index.js', defer='defer') 

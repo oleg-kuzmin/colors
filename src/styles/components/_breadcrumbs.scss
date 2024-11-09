@@ -4,7 +4,10 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: $background-main;
+  color: $breadcrumbs-mobile;
+  @include media-tablet {
+    color: $breadcrumbs-dekstop;
+  }
 
   &__element {
     display: inline-flex;
@@ -21,16 +24,21 @@
       height: 3px;
       margin-right: 8px;
       border-radius: 50%;
-      background-color: $background-main;
+      background-color: $breadcrumbs-mobile;
       content: '';
       opacity: 0.3;
+      @include media-tablet {
+        background-color: $breadcrumbs-dekstop;
+      }
     }
   }
 
   &__link {
     text-transform: uppercase;
     opacity: 0.3;
-    transition: opacity $hover;
+    transition:
+      opacity $hover,
+      color $hover;
     @include font-regular(10px, 0.06em);
     &:hover {
       color: $text-main;

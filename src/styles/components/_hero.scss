@@ -1,0 +1,67 @@
+@use '../utils' as *;
+
+.hero {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  width: 100%;
+  max-width: calc(100% - 48px);
+  margin: 0 auto 48px;
+
+  @include media-tablet {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+    min-height: 560px;
+    margin-bottom: 72px;
+    object-fit: cover;
+  }
+
+  &__title {
+    @include font-regular(36px, -0.04em);
+    @include media-tablet {
+      margin-bottom: 19px;
+      color: $text-hero;
+      @include font-regular(72px, -0.02em);
+    }
+  }
+
+  &__subtitle {
+    display: none;
+    @include media-tablet {
+      display: revert;
+      max-width: 472px;
+      color: $text-hero;
+      text-align: center;
+      @include font-medium(16px, 0.02em, 1.3);
+    }
+  }
+
+  &__slide {
+    display: none;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./images/hero-image.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    @include media-tablet {
+      display: revert;
+    }
+  }
+
+  &__breadcrumbs {
+    margin: 16px 0 47px;
+    @include media-tablet {
+      position: absolute;
+      top: 32px;
+      left: 64px;
+      margin: 0;
+    }
+  }
+}

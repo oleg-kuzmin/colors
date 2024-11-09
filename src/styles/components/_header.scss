@@ -48,6 +48,7 @@
   }
 
   &__link-basket {
+    display: flex;
     @include media-laptop {
       display: none;
     }
