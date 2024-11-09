@@ -4,7 +4,7 @@
   display: inline-block;
   height: 19px;
 
-  @include media-desktop {
+  @include media-laptop-L {
     height: 26px;
   }
 }

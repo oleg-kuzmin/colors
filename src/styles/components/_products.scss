@@ -9,7 +9,7 @@
     max-width: calc(100% - 128px);
     gap: 50px;
   }
-  @include media-desktop {
+  @include media-laptop-L {
     gap: 138px;
   }
 
@@ -17,7 +17,7 @@
     display: flex;
     justify-content: space-between;
     margin-bottom: 24px;
-    @include media-desktop {
+    @include media-laptop-L {
       margin-bottom: 44px;
     }
   }
@@ -48,10 +48,14 @@
     }
   }
 
-  .products__filters {
+  &__filters {
     display: none;
     @include media-tablet {
       display: flex;
     }
+  }
+
+  &__main {
+    width: 100%;
   }
 }
