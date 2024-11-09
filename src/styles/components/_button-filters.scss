@@ -1,0 +1,11 @@
+@use '../utils' as *;
+
+.button-filters {
+  border: none;
+  background-color: $background-main;
+  text-transform: uppercase;
+  cursor: pointer;
+  @include font-medium(12px, 0.06em);
+  @include effect-hover-main;
+  @include effect-focus-main;
+}

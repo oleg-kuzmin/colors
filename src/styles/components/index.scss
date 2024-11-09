@@ -1,6 +1,8 @@
 @use './breadcrumbs';
 @use './button-burger';
+@use './button-filters';
 @use './button-sort';
+@use './card';
 @use './filter-checkbox';
 @use './filters';
 @use './link-basket';
@@ -13,3 +15,4 @@
 
 @use './header';
 @use './hero';
+@use './products';

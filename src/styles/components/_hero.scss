@@ -113,15 +113,18 @@
   }
 
   &__pagination {
-    display: flex;
-    z-index: 2;
-    position: absolute;
-    bottom: 39px;
-    margin-left: 13px;
-    padding: 13px 24px;
-    gap: 8px;
-    border-radius: 16px;
-    background: rgba(0, 0, 0, 0.4);
+    display: none;
+    @include media-tablet {
+      display: flex;
+      z-index: 2;
+      position: absolute;
+      bottom: 39px;
+      margin-left: 13px;
+      padding: 13px 24px;
+      gap: 8px;
+      border-radius: 16px;
+      background: rgba(0, 0, 0, 0.4);
+    }
   }
 
   &__pagination-bullet {

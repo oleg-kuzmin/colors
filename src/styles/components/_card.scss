@@ -1,0 +1,11 @@
+@use '../utils' as *;
+
+.card {
+  width: 156px;
+  height: 306px;
+  background-color: $ui-main;
+  @include media-desktop {
+    width: 278px;
+    height: 392px;
+  }
+}

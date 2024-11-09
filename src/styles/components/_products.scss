@@ -1,0 +1,57 @@
+@use '../utils' as *;
+
+.products {
+  width: 100%;
+  max-width: calc(100% - 48px);
+  margin: 0 auto;
+  @include media-tablet {
+    display: flex;
+    max-width: calc(100% - 128px);
+    gap: 50px;
+  }
+  @include media-desktop {
+    gap: 138px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    @include media-desktop {
+      margin-bottom: 44px;
+    }
+  }
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 59px 15px;
+    @include media-tablet {
+      justify-content: start;
+      gap: 20px;
+    }
+  }
+
+  &__button-filters {
+    @include media-tablet {
+      display: none;
+    }
+  }
+
+  &__counter {
+    display: none;
+    @include media-tablet {
+      display: revert;
+      text-transform: uppercase;
+      @include font-medium(12px, 0.06em);
+    }
+  }
+
+  .products__filters {
+    display: none;
+    @include media-tablet {
+      display: flex;
+    }
+  }
+}
