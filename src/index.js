@@ -1,2 +1,2 @@
 import './index.scss';
-console.log(123);
+import './scripts/swiper';

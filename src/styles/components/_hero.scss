@@ -19,6 +19,7 @@
   }
 
   &__title {
+    z-index: 2;
     @include font-regular(36px, -0.04em);
     @include media-tablet {
       margin-bottom: 19px;
@@ -31,6 +32,7 @@
     display: none;
     @include media-tablet {
       display: revert;
+      z-index: 2;
       max-width: 472px;
       color: $text-hero;
       text-align: center;
@@ -39,29 +41,97 @@
   }
 
   &__slide {
-    display: none;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-image: url('./images/hero-image.png');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    @include media-tablet {
-      display: revert;
-    }
   }
 
   &__breadcrumbs {
+    z-index: 2;
     margin: 16px 0 47px;
     @include media-tablet {
       position: absolute;
       top: 32px;
       left: 64px;
       margin: 0;
+    }
+  }
+
+  &__swiper {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include media-tablet {
+      display: revert;
+    }
+  }
+
+  &__swiper-controls {
+    display: none;
+    @include media-tablet {
+      display: flex;
+      z-index: 2;
+      position: absolute;
+      bottom: 146px;
+      justify-content: space-between;
+      width: 50%;
+    }
+    @include media-laptop-L {
+      width: 1140px;
+    }
+  }
+
+  &__swiper-next {
+    width: 80px;
+    height: 80px;
+    border: none;
+    background-image: url('./images/arrow-right-icon.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    @include effect-focus-main;
+  }
+
+  &__swiper-prev {
+    width: 80px;
+    height: 80px;
+    transform: rotate(180deg);
+    border: none;
+    background-image: url('./images/arrow-right-icon.svg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    @include effect-focus-main;
+  }
+
+  &__pagination {
+    display: flex;
+    z-index: 2;
+    position: absolute;
+    bottom: 39px;
+    margin-left: 13px;
+    padding: 13px 24px;
+    gap: 8px;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &__pagination-bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $background-main;
+    opacity: 0.2;
+    &_active {
+      opacity: 1;
     }
   }
 }
