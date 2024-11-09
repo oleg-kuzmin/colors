@@ -1,7 +1,6 @@
 @use './breadcrumbs';
 @use './button-burger';
 @use './button-filters';
-@use './button-sort';
 @use './card';
 @use './filter-checkbox';
 @use './filters';
@@ -9,10 +8,10 @@
 @use './link-callback-tel';
 @use './link-icon';
 @use './logo';
-@use './modal-sort';
 @use './navigation';
 @use './ui-icons';
 
 @use './header';
 @use './hero';
 @use './products';
+@use './modal-sort';

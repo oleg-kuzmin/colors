@@ -94,9 +94,23 @@ html(lang='ru')
           .products__buttons
             button.button-filters.products__button-filters Фильтры
             span.products__counter 412 товаров
-            button.button-sort
-              span.button-sort__text Сначала дорогие
-              span.button-sort__arrow
+
+            .modal-sort
+              button.modal-sort__button
+                span.modal-sort__button-text Сначала дорогие
+                span.modal-sort__button-arrow
+              .modal-sort__background
+              .modal-sort__content
+                ul.modal-sort__content-list
+                  li
+                    button.modal-sort__content-button.modal-sort__content-button_active Сначала дорогие
+                  li
+                    button.modal-sort__content-button Сначала недорогие
+                  li
+                    button.modal-sort__content-button Сначала популярные
+                  li
+                    button.modal-sort__content-button Сначала новые
+
           .products__cards
             .card
               img.card__image(src='./images/card-image.png', alt='Картинка')
