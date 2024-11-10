@@ -1,0 +1,12 @@
+include ./cart-product
+
+mixin cart(className)
+  div(class=['cart', className])
+    .cart__content
+      .cart__header
+        span.cart__title Корзина
+        button.cart__button-close
+      .cart__counter
+        span.cart__counter-value 4
+        button.cart__clear-all очистить список
+      +cart-product

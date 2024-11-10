@@ -1,0 +1,88 @@
+@use '../utils' as *;
+
+.cart {
+  -ms-overflow-style: none;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 600px;
+  overflow-y: auto;
+  background-color: $background-main;
+  box-shadow:
+    2px 2px 8px $text-main,
+    -2px -2px 8px $text-main;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
+  @include media-laptop-L {
+    height: 100vh;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: calc(100% - 48px);
+    margin: 0 auto;
+    @include media-laptop-L {
+      justify-content: start;
+      max-width: calc(100% - 80px);
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 32px 0 80px;
+  }
+
+  &__title {
+    padding-top: 6px;
+    @include font-medium(30px, -0.04em);
+  }
+
+  &__button-close {
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgba($color: #000000, $alpha: 0.1);
+    border-radius: 50%;
+    background-image: url('./images/close-icon.svg');
+    background-position: center;
+    background-size: 24px 24px;
+    background-repeat: no-repeat;
+    background-color: transparent;
+    cursor: pointer;
+    @include effect-hover-button;
+    @include effect-focus-main;
+    &:focus-visible {
+      border-radius: 50%;
+    }
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  &__counter-value {
+    &::after {
+      content: ' товара';
+    }
+    @include font-regular(14px, 0, 1.12);
+  }
+
+  &__clear-all {
+    border: none;
+    background-color: transparent;
+    color: rgba($color: $text-main, $alpha: 0.4);
+    cursor: pointer;
+    @include font-light(14px, 0, 1.12);
+    @include effect-hover-main;
+    @include effect-focus-main;
+  }
+}
