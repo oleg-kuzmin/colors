@@ -1,14 +1,17 @@
+import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
+
 const buttonFilters = document.querySelector('.button-filters');
 const filters = document.querySelector('.filters');
 
 function handleClick(evt) {
-  if (!evt.target.classList.contains('filters_opened')) {
+  if (evt.target.classList.contains('wrapper-background')) {
     closeFilters();
   }
 }
 
 function openFilter() {
   filters.classList.add('filters_opened');
+  openWrapperBackground();
   setTimeout(() => {
     document.addEventListener('click', handleClick);
   }, 0);
@@ -16,6 +19,7 @@ function openFilter() {
 
 function closeFilters() {
   filters.classList.remove('filters_opened');
+  closeWrapperBackground();
   document.removeEventListener('click', handleClick);
 }
 

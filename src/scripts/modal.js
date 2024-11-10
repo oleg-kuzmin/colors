@@ -1,17 +1,18 @@
+import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
+
 const modalSortButton = document.querySelector('.modal-sort__button');
-const wrapperBackground = document.querySelector('.wrapper-background');
 const modalSortContent = document.querySelector('.modal-sort__content');
 const modalSortButtonText = modalSortButton.querySelector('.modal-sort__button-text');
 const modalSortContentButtons = document.querySelectorAll('.modal-sort__content-button');
 
 function openModalSort() {
-  wrapperBackground.classList.add('wrapper-background_opened');
+  openWrapperBackground();
   modalSortContent.classList.add('modal-sort__content_opened');
   setModalEventListeners();
 }
 
 function closeModalSort() {
-  wrapperBackground.classList.remove('wrapper-background_opened');
+  closeWrapperBackground();
   modalSortContent.classList.remove('modal-sort__content_opened');
   removeModalEventListeners();
 }
