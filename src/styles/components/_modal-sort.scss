@@ -65,6 +65,7 @@
     min-width: 280px;
     padding-bottom: 12px;
     gap: 2px;
+    border-radius: 5px;
     background-color: $background-main;
   }
 
@@ -75,6 +76,7 @@
     height: 45px;
     padding: 0 24px;
     border: none;
+    border-radius: 5px;
     background-color: $background-main;
     text-transform: uppercase;
     cursor: pointer;
@@ -82,7 +84,7 @@
     @include effect-hover-main;
     @include effect-focus-main;
     &:focus-visible {
-      border-radius: 2px;
+      border-radius: 5px;
       outline: 2px solid yellowgreen;
     }
 
