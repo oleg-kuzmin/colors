@@ -6,6 +6,7 @@
   width: 156px;
   height: 305px;
   border-bottom: 1px solid rgba($color: #000000, $alpha: 0.1);
+  border-radius: 10px;
   background-color: $background-main;
   @include media-laptop-L {
     width: 278px;
@@ -15,6 +16,8 @@
   &__image {
     height: 156px;
     object-fit: cover;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
     vertical-align: top;
     @include media-laptop-L {
       height: 278px;
