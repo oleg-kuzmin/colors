@@ -1,12 +1,23 @@
 const buttonFilters = document.querySelector('.button-filters');
 const filters = document.querySelector('.filters');
 
+function handleClick(evt) {
+  console.log(evt.target);
+  if (!evt.target.classList.contains('filters_opened')) {
+    closeFilters();
+  }
+}
+
 function openFilter() {
   filters.classList.add('filters_opened');
+  setTimeout(() => {
+    document.addEventListener('click', handleClick);
+  }, 0);
 }
 
 function closeFilters() {
   filters.classList.remove('filters_opened');
+  document.removeEventListener('click', handleClick);
 }
 
 buttonFilters.addEventListener('click', () => {
