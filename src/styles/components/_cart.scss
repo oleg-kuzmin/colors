@@ -9,17 +9,23 @@
   width: 100%;
   max-width: 600px;
   overflow-y: auto;
+  transform: translateX(110%);
   background-color: $background-main;
   box-shadow:
     2px 2px 8px $text-main,
     -2px -2px 8px $text-main;
   scrollbar-width: none;
+  transition: transform $cart;
   &::-webkit-scrollbar {
     width: 0;
     height: 0;
   }
   @include media-laptop-L {
     height: 100vh;
+  }
+
+  &_opened {
+    transform: translateX(0);
   }
 
   &__content {

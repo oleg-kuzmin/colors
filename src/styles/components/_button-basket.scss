@@ -1,12 +1,13 @@
 @use '../utils' as *;
 
-.link-basket {
+.button-basket {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 24px;
   min-width: 24px;
   height: 24px;
+  border: none;
   border-radius: 50%;
   background-color: $ui-main;
   cursor: pointer;

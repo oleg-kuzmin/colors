@@ -10,8 +10,8 @@
     min-height: 64px;
     margin: 0 auto;
     border-bottom: 1px solid rgba($color: $text-main, $alpha: 0.06);
-    @include media-laptop-L {
-      justify-content: start;
+    @include media-laptop {
+      justify-content: start; //!
       max-width: calc(100% - 128px);
       min-height: 104px;
     }
@@ -24,8 +24,11 @@
   }
 
   &__logo {
+    @include media-laptop {
+      margin-right: 64px;
+    }
     @include media-laptop-L {
-      margin-right: 171px;
+      margin-right: 171px; //!
     }
   }
 
@@ -34,23 +37,16 @@
     @include media-laptop {
       display: revert;
     }
-    @include media-laptop-L {
-      margin-right: auto;
+    @include media-laptop {
+      margin-right: auto; //!
     }
   }
 
   &__link-callback-tel {
     display: none;
     @include media-laptop-L {
-      display: flex;
+      display: flex; //!
       margin-right: 117px;
-    }
-  }
-
-  &__link-basket {
-    display: flex;
-    @include media-laptop {
-      display: none;
     }
   }
 
@@ -58,6 +54,8 @@
     display: none;
     @include media-laptop {
       display: flex;
+      justify-self: end;
+      margin-right: 24px;
     }
   }
 }
