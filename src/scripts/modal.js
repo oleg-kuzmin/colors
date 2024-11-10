@@ -33,17 +33,16 @@ function handleClick(evt) {
     });
     evt.target.classList.add('modal-sort__content-button_active');
     modalSortButtonText.textContent = evt.target.textContent;
-    closeModalSort();
   }
-  if (evt.target.classList.contains('modal-sort__background_opened')) {
-    closeModalSort();
-  }
+  closeModalSort();
 }
 
 function setModalEventListeners() {
-  document.addEventListener('click', handleClick);
-  document.addEventListener('keydown', handleEscKeyboard);
-  document.addEventListener('scroll', handleScroll);
+  setTimeout(() => {
+    document.addEventListener('click', handleClick);
+    document.addEventListener('keydown', handleEscKeyboard);
+    document.addEventListener('scroll', handleScroll);
+  }, 0);
 }
 
 function removeModalEventListeners() {

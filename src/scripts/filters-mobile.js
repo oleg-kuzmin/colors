@@ -2,7 +2,6 @@ const buttonFilters = document.querySelector('.button-filters');
 const filters = document.querySelector('.filters');
 
 function handleClick(evt) {
-  console.log(evt.target);
   if (!evt.target.classList.contains('filters_opened')) {
     closeFilters();
   }
