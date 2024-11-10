@@ -1,0 +1,16 @@
+mixin modal-sort(className)
+  div(class=['modal-sort', className])
+    button.modal-sort__button
+      span.modal-sort__button-text Сначала дорогие
+      span.modal-sort__button-arrow
+    .modal-sort__background
+    .modal-sort__content
+      ul.modal-sort__content-list
+        li
+          button.modal-sort__content-button.modal-sort__content-button_active Сначала дорогие
+        li
+          button.modal-sort__content-button Сначала недорогие
+        li
+          button.modal-sort__content-button Сначала популярные
+        li
+          button.modal-sort__content-button Сначала новые

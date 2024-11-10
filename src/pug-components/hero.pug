@@ -1,0 +1,30 @@
+include ./breadcrumbs
+
+mixin hero
+  section.hero
+    +breadcrumbs('hero__breadcrumbs')
+    h1.hero__title Краски
+    p.hero__subtitle Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!
+    .hero__swiper-controls
+      button.hero__swiper-prev
+      button.hero__swiper-next
+    .hero__pagination
+      .hero__pagination-bullet.hero__pagination-bullet_active
+      .hero__pagination-bullet
+      .hero__pagination-bullet
+      .hero__pagination-bullet
+      .hero__pagination-bullet
+      .hero__pagination-bullet
+    swiper-container.hero__swiper(slides-per-view='1', speed='1000', loop='true', css-mode='true')
+      swiper-slide
+        .hero__slide
+      swiper-slide
+        .hero__slide
+      swiper-slide
+        .hero__slide
+      swiper-slide
+        .hero__slide
+      swiper-slide
+        .hero__slide
+      swiper-slide
+        .hero__slide

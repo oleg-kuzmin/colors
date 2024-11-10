@@ -1,0 +1,13 @@
+include ./link-basket.pug
+include ./link-icon.pug
+
+mixin ui-icons(className)
+  ul(class=['ui-icons', className])
+    li
+      +link-icon('s', 'search')
+    li
+      +link-icon('m', 'profile')
+    li
+      +link-icon('m', 'like')
+    li
+      +link-basket

@@ -1,3 +1,14 @@
+include ./pug-components/button-burger
+include ./pug-components/card
+include ./pug-components/header
+include ./pug-components/link-basket
+include ./pug-components/link-callback-tel
+include ./pug-components/logo
+include ./pug-components/navigation
+include ./pug-components/ui-icons
+include ./pug-components/hero
+include ./pug-components/products
+
 doctype html
 html(lang='ru')
   head
@@ -5,172 +16,15 @@ html(lang='ru')
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
     title Краски
   body
-    header.header
-      .header__content
-        button.button-burger.header__button-burger
-          span.button-burger__line
-          span.button-burger__line
-          span.button-burger__line
-        img.logo.header__logo(src='./images/logo.svg', alt='Логотип Colors')
-        nav.navigation.header__navigation
-          ul.navigation__list
-            li
-              a.navigation__link(href='#') Продукты
-            li
-              a.navigation__link(href='#') Цвета
-            li
-              a.navigation__link(href='#') Вдохновение
-            li
-              a.navigation__link(href='#') Советы
-            li
-              a.navigation__link(href='#') Найти магазин
-        a.link-callback-tel.header__link-callback-tel(href='#')
-          span.link-callback-tel__number +7 (495) 221-77-69
-          span.link-callback-tel__placeholder Заказать звонок
-        ul.ui-icons.header__ui-icons
-          li
-            a.link-icon.link-icon_size_s.link-icon_bg_search(tabindex='0', aria-label='Поиск') 
-          li
-            a.link-icon.link-icon_size_m.link-icon_bg_profile(tabindex='0', aria-label='Профиль') 
-          li
-            a.link-icon.link-icon_size_m.link-icon_bg_like(tabindex='0', aria-label='Избранное') 
-          li
-            a.link-basket(tabindex='0', aria-label='Корзина') 4
-        a.link-basket.header__link-basket(tabindex='0', aria-label='Корзина') 4
-
+    +header
+      +button-burger('header__button-burger')
+      +logo('header__logo')
+      +navigation('header__navigation')
+      +link-callback-tel('header__link-callback-tel')
+      +ui-icons('header__ui-icons')
+      +link-basket('header__link-basket')
     main
-      section.hero
-        ul.breadcrumbs.hero__breadcrumbs
-          li.breadcrumbs__element
-            a.breadcrumbs__link(href='#') Главная
-          li.breadcrumbs__element
-            a.breadcrumbs__link(href='#') Продукты
-          li.breadcrumbs__element
-            a.breadcrumbs__link(href='#') Краски
-        h1.hero__title Краски
-        p.hero__subtitle Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!
-        .hero__swiper-controls
-          button.hero__swiper-prev
-          button.hero__swiper-next
-        .hero__pagination
-          .hero__pagination-bullet.hero__pagination-bullet_active
-          .hero__pagination-bullet
-          .hero__pagination-bullet
-          .hero__pagination-bullet
-          .hero__pagination-bullet
-          .hero__pagination-bullet
-        swiper-container.hero__swiper(slides-per-view='1', speed='1000', loop='true', css-mode='true')
-          swiper-slide
-            .hero__slide
-          swiper-slide
-            .hero__slide
-          swiper-slide
-            .hero__slide
-          swiper-slide
-            .hero__slide
-          swiper-slide
-            .hero__slide
-          swiper-slide
-            .hero__slide
-
-      section.products
-        .filters.products__filters
-          .filter-checkbox
-            input#filterNew.filter-checkbox__input(type='checkbox', name='filterNew')
-            label.filter-checkbox__label(for='filterNew') Новинки
-          .filter-checkbox
-            input#filterStock.filter-checkbox__input(type='checkbox', name='filterStock')
-            label.filter-checkbox__label(for='filterStock') Есть в наличии
-          .filter-checkbox
-            input#filterContract.filter-checkbox__input(type='checkbox', name='filterContract')
-            label.filter-checkbox__label(for='filterContract') Контрактные
-          .filter-checkbox
-            input#filterExcluzive.filter-checkbox__input(type='checkbox', name='filterExcluzive')
-            label.filter-checkbox__label(for='filterExcluzive') Эксклюзивные
-          .filter-checkbox
-            input#filterSale.filter-checkbox__input(type='checkbox', name='filterSale')
-            label.filter-checkbox__label(for='filterSale') Распродажа
-        .products__main
-          .products__buttons
-            button.button-filters.products__button-filters Фильтры
-            span.products__counter 412 товаров
-
-            .modal-sort
-              button.modal-sort__button
-                span.modal-sort__button-text Сначала дорогие
-                span.modal-sort__button-arrow
-              .modal-sort__background
-              .modal-sort__content
-                ul.modal-sort__content-list
-                  li
-                    button.modal-sort__content-button.modal-sort__content-button_active Сначала дорогие
-                  li
-                    button.modal-sort__content-button Сначала недорогие
-                  li
-                    button.modal-sort__content-button Сначала популярные
-                  li
-                    button.modal-sort__content-button Сначала новые
-
-          .products__cards
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
-            .card
-              img.card__image(src='./images/card-image.png', alt='Картинка')
-              p.card__description Краска Wallquest, Brownsone MS90102
-              .card__footer
-                span.card__price 4800
-                button.card__button
+      +hero
+      +products
 
   script(src='./index.js', defer='defer') 

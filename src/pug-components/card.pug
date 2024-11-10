@@ -1,0 +1,7 @@
+mixin card(image, alt, desc, price, className)
+  div(class=['card', className])
+    img.card__image(src=image, alt=alt)
+    p.card__description #{ desc }
+    .card__footer
+      span.card__price #{ price }
+      button.card__button
