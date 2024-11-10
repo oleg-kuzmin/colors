@@ -1,3 +1,11 @@
+include ./filter-checkbox
+
 mixin filters(className)
   div(class=['filters', className])
-    block
+    .filters__line
+    .filters__content
+      +filter-checkbox('filterNew', 'Новинки') 
+      +filter-checkbox('filterStock', 'Есть в наличии') 
+      +filter-checkbox('filterContract', 'Контрактные') 
+      +filter-checkbox('filterExcluzive', 'Эксклюзивные') 
+      +filter-checkbox('filterSale', 'Распродажа') 

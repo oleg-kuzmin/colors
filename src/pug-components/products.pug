@@ -7,11 +7,6 @@ include ./modal-sort
 mixin products(className)
   section(class=['products', className])
     +filters('products__filters')
-      +filter-checkbox('filterNew', 'Новинки') 
-      +filter-checkbox('filterStock', 'Есть в наличии') 
-      +filter-checkbox('filterContract', 'Контрактные') 
-      +filter-checkbox('filterExcluzive', 'Эксклюзивные') 
-      +filter-checkbox('filterSale', 'Распродажа') 
     .products__main
       .products__buttons
         +button-filters('products__button-filters') 

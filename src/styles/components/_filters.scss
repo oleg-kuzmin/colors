@@ -2,6 +2,52 @@
 
 .filters {
   display: flex;
+  z-index: 2;
+  position: fixed;
+  top: 116px;
+  left: 0;
   flex-direction: column;
-  gap: 10px;
+  align-items: center;
+  width: 100%;
+  height: calc(100% - 116px);
+  transform: translateY(100%);
+  border-radius: 24px 24px 0 0;
+  background-color: $background-main;
+  transition: transform $filters;
+
+  &_opened {
+    transform: translateY(0);
+  }
+
+  @include media-tablet {
+    display: revert;
+    position: revert;
+    width: revert;
+    transform: none;
+  }
+
+  &__line {
+    width: 28px;
+    height: 4px;
+    margin: 12px 0 38px;
+    border-radius: 40px;
+    background-color: $text-main;
+    opacity: 0.6;
+    @include media-tablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-start;
+    margin-left: 24px;
+    gap: 10px;
+
+    @include media-tablet {
+      align-self: revert;
+      margin-left: 0;
+    }
+  }
 }

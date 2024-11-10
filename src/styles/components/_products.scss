@@ -50,12 +50,12 @@
     }
   }
 
-  &__filters {
-    display: none;
-    @include media-tablet {
-      display: flex;
-    }
-  }
+  // &__filters {
+  //   display: none;
+  //   @include media-tablet {
+  //     display: flex;
+  //   }
+  // }
 
   &__main {
     width: 100%;
