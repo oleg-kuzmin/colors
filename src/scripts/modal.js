@@ -1,17 +1,17 @@
 const modalSortButton = document.querySelector('.modal-sort__button');
-const modalSortBackground = document.querySelector('.modal-sort__background');
+const wrapperBackground = document.querySelector('.wrapper-background');
 const modalSortContent = document.querySelector('.modal-sort__content');
 const modalSortButtonText = modalSortButton.querySelector('.modal-sort__button-text');
 const modalSortContentButtons = document.querySelectorAll('.modal-sort__content-button');
 
 function openModalSort() {
-  modalSortBackground.classList.add('modal-sort__background_opened');
+  wrapperBackground.classList.add('wrapper-background_opened');
   modalSortContent.classList.add('modal-sort__content_opened');
   setModalEventListeners();
 }
 
 function closeModalSort() {
-  modalSortBackground.classList.remove('modal-sort__background_opened');
+  wrapperBackground.classList.remove('wrapper-background_opened');
   modalSortContent.classList.remove('modal-sort__content_opened');
   removeModalEventListeners();
 }

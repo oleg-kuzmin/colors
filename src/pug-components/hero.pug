@@ -1,7 +1,7 @@
 include ./breadcrumbs
 
-mixin hero
-  section.hero
+mixin hero(className)
+  section(class=['hero', className])
     +breadcrumbs('hero__breadcrumbs')
     h1.hero__title Краски
     p.hero__subtitle Идеально подходят для стен и других поверхностей. Найди свой идеальный цвет!

@@ -1,9 +1,11 @@
+include ./wrapper-background
+
 mixin modal-sort(className)
   div(class=['modal-sort', className])
     button.modal-sort__button
       span.modal-sort__button-text Сначала дорогие
       span.modal-sort__button-arrow
-    .modal-sort__background
+    +wrapper-background 
     .modal-sort__content
       ul.modal-sort__content-list
         li
