@@ -1,5 +1,5 @@
 include ./button-filters
-include ./card
+include ./template-card
 include ./filter-checkbox
 include ./filters
 include ./modal-sort
@@ -14,4 +14,4 @@ mixin products(arrayProducts=[], className)
         +modal-sort
       .products__cards
         each item in arrayProducts
-          +card(item.image, item.title, item.price)
+          +template-card(item.image, item.title, item.price)
