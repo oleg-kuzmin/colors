@@ -1,0 +1,17 @@
+mixin basket(className)
+  div(class=['basket', className])
+    .basket__content
+      .basket__header
+        span.basket__title Корзина
+        button.basket__button-close
+      .basket__counter
+        span.basket__counter-value 4
+        button.basket__clear-all очистить список
+
+      .basket__cards-container  
+
+      .basket__footer
+        .basket__total
+          span.basket__total-title Итого
+          span.basket__total-price 14 400
+        button.basket__submit Оформить заказ

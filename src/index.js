@@ -1,7 +1,8 @@
 import './index.scss';
-import './scripts/cart-panel';
+import './scripts/basket';
 import './scripts/filters-mobile';
-import './scripts/modal';
+import './scripts/mock';
 import './scripts/products';
+import './scripts/sort';
 import './scripts/swiper';
 import './scripts/wrapper-background';

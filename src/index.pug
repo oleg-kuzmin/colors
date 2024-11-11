@@ -1,8 +1,8 @@
+include ./pug-components/basket
 include ./pug-components/basket-card
 include ./pug-components/button-basket
 include ./pug-components/button-burger
 include ./pug-components/card
-include ./pug-components/cart
 include ./pug-components/header
 include ./pug-components/hero
 include ./pug-components/link-callback-tel
@@ -28,7 +28,7 @@ html(lang='ru')
     main
       +hero
       +products
-      +cart
+      +basket
       template#card
         +card
       template#basket-card

@@ -35,3 +35,10 @@
     opacity: 1;
   }
 }
+
+@mixin no-effects {
+  cursor: auto;
+  &:hover {
+    background-color: transparent;
+  }
+}
