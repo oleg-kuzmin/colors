@@ -4,8 +4,9 @@ const cartButtonClose = document.querySelector('.basket__button-close');
 const templateBasketCard = document.querySelector('#basket-card');
 const basketCardsContainer = document.querySelector('.basket__cards-container');
 const basketCounterValue = document.querySelector('.basket__counter-value');
+const basketClearAll = document.querySelector('.basket__clear-all');
 
-const getTextForBasketCounter = number => {
+function getTextForBasketCounter(number) {
   if (number === 1) {
     return `${number} товар`;
   } else if (number > 4 || number === 0) {
@@ -13,7 +14,9 @@ const getTextForBasketCounter = number => {
   } else {
     return `${number} товара`;
   }
-};
+}
+
+let basket = [];
 
 buttonBasket.addEventListener('click', () => {
   cartPanel.classList.add('basket_opened');
@@ -23,7 +26,10 @@ cartButtonClose.addEventListener('click', () => {
   cartPanel.classList.remove('basket_opened');
 });
 
-let basket = [];
+basketClearAll.addEventListener('click', () => {
+  basket = [];
+  generateBasketCards(basket);
+});
 
 export function addToBasket(card) {
   if (inСart(card.id)) {
