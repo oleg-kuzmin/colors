@@ -1,6 +1,7 @@
 mixin card(id='', src='', title='', price='', className)
   article(class=['card', className], id=id)
     img.card__image(src=src, alt=title)
+    .card__counter.card__counter_disabled 2
     p.card__description #{ title }
     .card__footer
       span.card__price #{ price }

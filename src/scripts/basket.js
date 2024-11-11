@@ -13,15 +13,18 @@ cartButtonClose.addEventListener('click', () => {
 });
 
 let basket = [];
-generateBasketCards(basket);
 
 export function addToBasket(card) {
   if (inСart(card.id)) {
     incrementCardCounter(card.id);
   } else {
-    basket.push({ ...card, counter: 1 });
-    generateBasketCards(basket);
+    addNewCard(card);
   }
+}
+
+function addNewCard(card) {
+  basket.push({ ...card, counter: 1 });
+  generateBasketCards(basket);
 }
 
 function inСart(id) {
@@ -38,6 +41,8 @@ function generateBasketCard(card) {
   const cloneButtonDelete = clone.querySelector('.basket-card__delete');
   const cloneButtonPlus = clone.querySelector('.basket-card__plus');
   const cloneButtonMinus = clone.querySelector('.basket-card__minus');
+  const searchProductCard = document.querySelector(`#card-${card.id}`);
+  const searchProductCardCounter = searchProductCard.querySelector('.card__counter');
 
   clone.id = `basketCard-${card.id}`;
   cloneImage.src = card.image;
@@ -45,14 +50,17 @@ function generateBasketCard(card) {
   cloneTitle.textContent = card.title;
   clonePrice.textContent = card.price * card.counter;
   cloneCounter.textContent = card.counter;
+  searchProductCardCounter.textContent = card.counter;
 
   if (card.isDeleted) {
     cloneButtonPlus.disabled = true;
     cloneButtonMinus.disabled = true;
+    searchProductCardCounter.classList.add('card__counter_disabled');
     clone.classList.add('basket-card_deleted');
   } else {
     cloneButtonPlus.disabled = false;
     cloneButtonMinus.disabled = false;
+    searchProductCardCounter.classList.remove('card__counter_disabled');
     clone.classList.remove('basket-card_deleted');
   }
 
@@ -69,55 +77,36 @@ function generateBasketCard(card) {
   });
 
   cloneButtonMinus.addEventListener('click', () => {
-    decrementCardCounter(card.id);
+    if (card.counter > 1) {
+      decrementCardCounter(card.id);
+    } else {
+      deleteCard(card.id);
+    }
   });
 
   basketCardsContainer.append(clone);
 }
 
 function decrementCardCounter(id) {
-  const searchCard = document.querySelector(`#basketCard-${id}`);
-  const searchPrice = searchCard.querySelector('.basket-card__price');
-  const searchCounter = searchCard.querySelector('.basket-card__counter');
   basket = basket.map(card => {
-    if (card.id === id && card.counter > 1) {
-      searchCounter.textContent = card.counter - 1;
-      searchPrice.textContent = card.price * (card.counter - 1);
+    if (card.id === id) {
       return { ...card, counter: card.counter - 1 };
-    } else if (card.id === id) {
-      deleteCard(card.id);
-      return card;
     } else {
       return card;
     }
   });
+  generateBasketCards(basket);
 }
 
 function incrementCardCounter(id) {
-  const searchCard = document.querySelector(`#basketCard-${id}`);
-  const searchPrice = searchCard.querySelector('.basket-card__price');
-  const searchCounter = searchCard.querySelector('.basket-card__counter');
   basket = basket.map(card => {
     if (card.id === id) {
-      searchCounter.textContent = card.counter + 1;
-      searchPrice.textContent = card.price * (card.counter + 1);
-      return { ...card, counter: card.counter + 1 };
+      return { ...card, counter: card.counter + 1, isDeleted: false };
     } else {
       return card;
     }
   });
-  console.log(basket);
-}
-
-function generateBasketCards(arrayBasketCards = []) {
-  const list = document.querySelectorAll('.basket-card');
-  list.forEach(element => {
-    element.remove();
-  });
-  arrayBasketCards.forEach(basketCard => {
-    generateBasketCard(basketCard);
-  });
-  console.log(basket);
+  generateBasketCards(basket);
 }
 
 function deleteCard(id) {
@@ -132,7 +121,6 @@ function deleteCard(id) {
 }
 
 function comebackCard(id) {
-  console.log(id);
   basket = basket.map(card => {
     if (card.id === id) {
       return { ...card, isDeleted: false };
@@ -141,4 +129,15 @@ function comebackCard(id) {
     }
   });
   generateBasketCards(basket);
+}
+
+function generateBasketCards(arrayBasketCards = []) {
+  const list = document.querySelectorAll('.basket-card');
+  list.forEach(element => {
+    element.remove();
+  });
+  arrayBasketCards.forEach(basketCard => {
+    generateBasketCard(basketCard);
+  });
+  console.log(basket);
 }

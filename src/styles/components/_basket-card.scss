@@ -52,6 +52,16 @@
     display: flex;
     align-items: center;
     justify-content: end;
+    margin-bottom: 26px;
+
+    @include media-mobile-L {
+      justify-content: center;
+    }
+
+    @include media-tablet {
+      justify-content: end;
+      margin-bottom: 0;
+    }
   }
 
   &__minus {
