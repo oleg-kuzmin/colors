@@ -1,3 +1,5 @@
+import { getTextForCounter } from './helpers';
+
 const buttonBasket = document.querySelector('.button-basket');
 const cartPanel = document.querySelector('.basket');
 const cartButtonClose = document.querySelector('.basket__button-close');
@@ -6,16 +8,6 @@ const basketCardsContainer = document.querySelector('.basket__cards-container');
 const basketCounterValue = document.querySelector('.basket__counter-value');
 const basketClearAll = document.querySelector('.basket__clear-all');
 const basketTotalPrice = document.querySelector('.basket__total-price');
-
-function getTextForBasketCounter(number) {
-  if (number === 1) {
-    return `${number} товар`;
-  } else if (number > 4 || number === 0) {
-    return `${number} товаров`;
-  } else {
-    return `${number} товара`;
-  }
-}
 
 let basket = [];
 
@@ -166,7 +158,7 @@ function generateBasketCards(arrayBasketCards = []) {
   });
 
   buttonBasket.textContent = counterCards;
-  basketCounterValue.textContent = getTextForBasketCounter(counterCards);
+  basketCounterValue.textContent = getTextForCounter(counterCards);
   basketTotalPrice.textContent = totalPrice;
 
   arrayBasketCards.forEach(basketCard => {
