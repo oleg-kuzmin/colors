@@ -1,4 +1,4 @@
-include ./template-cart-product
+include ./basket-card
 
 mixin cart(className)
   div(class=['cart', className])
@@ -9,7 +9,7 @@ mixin cart(className)
       .cart__counter
         span.cart__counter-value 4
         button.cart__clear-all очистить список
-      +template-cart-product('./images/2.png', '1000', '12345', '1') 
+      +basket-card('./images/2.png', '1000', '12345', '1') 
 
       .cart__footer
         .cart__total

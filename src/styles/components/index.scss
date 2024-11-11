@@ -1,17 +1,17 @@
+@use './basket-card';
 @use './breadcrumbs';
-@use './template-card';
+@use './button-basket';
 @use './button-burger';
 @use './button-filters';
+@use './card';
 @use './filter-checkbox';
 @use './filters';
-@use './button-basket';
 @use './link-callback-tel';
 @use './link-icon';
 @use './logo';
 @use './navigation';
 @use './ui-icons';
 @use './wrapper-background';
-@use './template-cart-product';
 
 @use './header';
 @use './hero';

@@ -1,13 +1,15 @@
-include ./pug-components/button-burger
-include ./pug-components/header
+include ./pug-components/basket-card
 include ./pug-components/button-basket
+include ./pug-components/button-burger
+include ./pug-components/card
+include ./pug-components/cart
+include ./pug-components/header
+include ./pug-components/hero
 include ./pug-components/link-callback-tel
 include ./pug-components/logo
 include ./pug-components/navigation
-include ./pug-components/ui-icons
-include ./pug-components/hero
 include ./pug-components/products
-include ./pug-components/cart
+include ./pug-components/ui-icons
 include ./mock/data.pug
 
 doctype html
@@ -28,5 +30,10 @@ html(lang='ru')
       +hero
       +products(catalog)
       +cart
+      template#card
+        +card
+      template#basket-card
+        +basket-card
+
   block scripts
     script(src='./index.js', defer='defer') 

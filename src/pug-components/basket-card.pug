@@ -1,0 +1,12 @@
+mixin basket-card(src='', price='', id='', counter='', className)
+  div(class=['basket-card', className], id=id)
+    .basket-card__info
+      img.basket-card__image(src=src, alt=title)
+      .basket-card__description
+        .basket-card__title #{ title }
+        .basket-card__price #{ price }
+    .basket-card__ui
+      button.basket-card__minus
+      span.basket-card__counter #{ counter }
+      button.basket-card__plus
+      button.basket-card__delete
