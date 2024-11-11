@@ -24,6 +24,7 @@
 
   @include media-tablet {
     display: revert;
+    z-index: 2;
     position: revert;
     width: revert;
     transform: none;

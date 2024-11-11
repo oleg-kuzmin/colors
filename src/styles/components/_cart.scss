@@ -8,6 +8,7 @@
   right: 0;
   width: 100%;
   max-width: 600px;
+  height: 100%;
   overflow-y: auto;
   transform: translateX(110%);
   background-color: $background-main;
@@ -33,6 +34,7 @@
     flex-direction: column;
     width: 100%;
     max-width: calc(100% - 48px);
+    height: 100%;
     margin: 0 auto;
     @include media-laptop-L {
       justify-content: start;
@@ -90,5 +92,47 @@
     @include font-light(14px, 0, 1.12);
     @include effect-hover-main;
     @include effect-focus-main;
+  }
+
+  &__footer {
+    @include media-laptop-L {
+      margin-top: auto;
+    }
+  }
+
+  &__total {
+    display: flex;
+    flex-direction: column;
+    margin: 53px 0 26px;
+    gap: 6px;
+  }
+
+  &__total-title {
+    @include font-regular(16px);
+  }
+
+  &__total-price {
+    @include font-medium(30px, -0.02em);
+  }
+
+  &__submit {
+    width: 240px;
+    height: 56px;
+    margin-bottom: 32px;
+    border: none;
+    border-radius: 4px;
+    background-color: $ui-main;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: opacity $hover;
+    @include font-medium(12px, 0.06em);
+    &:hover {
+      opacity: 0.7;
+    }
+    &:focus-visible {
+      outline: 2px solid greenyellow;
+      opacity: 0.7;
+    }
   }
 }

@@ -9,4 +9,10 @@ mixin cart(className)
       .cart__counter
         span.cart__counter-value 4
         button.cart__clear-all очистить список
-      +cart-product
+      +cart-product 
+
+      .cart__footer
+        .cart__total
+          span.cart__total-title Итого
+          span.cart__total-price 14 400
+        button.cart__submit Оформить заказ
