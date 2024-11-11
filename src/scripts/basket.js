@@ -133,11 +133,19 @@ function comebackCard(id) {
 
 function generateBasketCards(arrayBasketCards = []) {
   const list = document.querySelectorAll('.basket-card');
+  let counterCards = 0;
+
   list.forEach(element => {
     element.remove();
   });
+
+  arrayBasketCards.forEach(element => {
+    counterCards += element.counter;
+  });
+
+  buttonBasket.textContent = counterCards;
+
   arrayBasketCards.forEach(basketCard => {
     generateBasketCard(basketCard);
   });
-  console.log(basket);
 }
