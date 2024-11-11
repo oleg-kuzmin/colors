@@ -4,22 +4,14 @@ include ./filter-checkbox
 include ./filters
 include ./modal-sort
 
-mixin products(className)
+mixin products(arrayProducts=[], className)
   section(class=['products', className])
     +filters('products__filters')
     .products__main
       .products__buttons
         +button-filters('products__button-filters') 
-        span.products__counter 412 товаров
+        span.products__counter #{ arrayProducts.length } товаров
         +modal-sort
       .products__cards
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800')
-        +card('./images/card-image.png', 'Картинка', 'Краска Wallquest, Brownsone MS90102', '4800') 
+        each item in arrayProducts
+          +card(item.image, item.title, item.price)

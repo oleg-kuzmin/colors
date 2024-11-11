@@ -9,6 +9,7 @@ include ./pug-components/ui-icons
 include ./pug-components/hero
 include ./pug-components/products
 include ./pug-components/cart
+include ./mock/data.pug
 
 doctype html
 html(lang='ru')
@@ -26,7 +27,7 @@ html(lang='ru')
       +button-basket('header__button-basket')
     main
       +hero
-      +products
+      +products(catalog)
       +cart
-
-  script(src='./index.js', defer='defer') 
+  block scripts
+    script(src='./index.js', defer='defer') 

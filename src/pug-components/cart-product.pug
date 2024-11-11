@@ -1,12 +1,12 @@
-mixin cart-product(className)
+mixin cart-product(src='', alt='', ittle='', price='', counter='', className)
   div(class=['cart-product', className])
     .cart-product__info
-      img.cart-product__image(src='./images/product-image.png', alt='Картинка')
+      img.cart-product__image(src=src, alt=alt)
       .cart-product__description
-        .cart-product__title Краска Wallquest, Brownsone MS90102
-        .cart-product__price 9600
+        .cart-product__title #{ ittle }
+        .cart-product__price #{ price }
     .cart-product__ui
       button.cart-product__minus
-      span.cart-product__counter 2
+      span.cart-product__counter #{ counter }
       button.cart-product__plus
       button.cart-product__delete
