@@ -78,9 +78,6 @@
   }
 
   &__counter-value {
-    &::after {
-      content: ' товара';
-    }
     @include font-regular(14px, 0, 1.12);
   }
 

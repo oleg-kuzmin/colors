@@ -3,6 +3,17 @@ const cartPanel = document.querySelector('.basket');
 const cartButtonClose = document.querySelector('.basket__button-close');
 const templateBasketCard = document.querySelector('#basket-card');
 const basketCardsContainer = document.querySelector('.basket__cards-container');
+const basketCounterValue = document.querySelector('.basket__counter-value');
+
+const getTextForBasketCounter = number => {
+  if (number === 1) {
+    return `${number} товар`;
+  } else if (number > 4 || number === 0) {
+    return `${number} товаров`;
+  } else {
+    return `${number} товара`;
+  }
+};
 
 buttonBasket.addEventListener('click', () => {
   cartPanel.classList.add('basket_opened');
@@ -140,10 +151,13 @@ function generateBasketCards(arrayBasketCards = []) {
   });
 
   arrayBasketCards.forEach(element => {
-    counterCards += element.counter;
+    if (!element.isDeleted) {
+      counterCards += element.counter;
+    }
   });
 
   buttonBasket.textContent = counterCards;
+  basketCounterValue.textContent = getTextForBasketCounter(counterCards);
 
   arrayBasketCards.forEach(basketCard => {
     generateBasketCard(basketCard);
