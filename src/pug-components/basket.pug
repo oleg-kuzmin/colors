@@ -1,5 +1,8 @@
+include ./wrapper-background
+
 mixin basket(className)
   div(class=['basket', className])
+    +wrapper-background 
     .basket__content
       .basket__header
         span.basket__title Корзина
@@ -7,9 +10,7 @@ mixin basket(className)
       .basket__counter
         span.basket__counter-value 0 товаров
         button.basket__clear-all очистить список
-
       .basket__cards-container
-
       .basket__footer
         .basket__total
           span.basket__total-title Итого

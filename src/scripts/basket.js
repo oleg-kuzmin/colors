@@ -1,4 +1,5 @@
 import { getTextForCounter } from './helpers';
+import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
 
 const buttonBasket = document.querySelector('.button-basket');
 const cartPanel = document.querySelector('.basket');
@@ -11,15 +12,44 @@ const basketTotalPrice = document.querySelector('.basket__total-price');
 
 let basket = [];
 
-buttonBasket.addEventListener('click', () => {
+function openBasket() {
   cartPanel.classList.add('basket_opened');
+  openWrapperBackground();
+  setTimeout(() => {
+    document.addEventListener('click', handleClickWrapper);
+    document.addEventListener('keydown', handleEscKeyboard);
+  }, 0);
+}
+
+function closeBasket() {
+  cartPanel.classList.remove('basket_opened');
+  closeWrapperBackground();
+  document.removeEventListener('click', handleClickWrapper);
+  document.removeEventListener('keydown', handleEscKeyboard);
+}
+
+function handleClickWrapper(evt) {
+  if (evt.target.classList.contains('wrapper-background')) {
+    closeBasket();
+  }
+}
+
+function handleEscKeyboard(evt) {
+  if (evt.code === 'Escape') {
+    closeBasket();
+  }
+}
+
+buttonBasket.addEventListener('click', () => {
+  openBasket();
 });
 
 cartButtonClose.addEventListener('click', () => {
-  cartPanel.classList.remove('basket_opened');
+  closeBasket();
 });
 
 basketClearAll.addEventListener('click', () => {
+  closeBasket();
   basket = [];
   generateBasketCards(basket);
 });
