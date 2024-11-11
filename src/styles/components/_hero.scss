@@ -20,6 +20,7 @@
 
   &__title {
     z-index: 2;
+    user-select: none;
     @include font-regular(36px, -0.04em);
     @include media-tablet {
       margin-bottom: 19px;
@@ -36,6 +37,7 @@
       max-width: 472px;
       color: $text-hero;
       text-align: center;
+      user-select: none;
       @include font-medium(16px, 0.02em, 1.3);
     }
   }

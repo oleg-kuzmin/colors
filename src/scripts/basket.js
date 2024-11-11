@@ -5,6 +5,7 @@ const templateBasketCard = document.querySelector('#basket-card');
 const basketCardsContainer = document.querySelector('.basket__cards-container');
 const basketCounterValue = document.querySelector('.basket__counter-value');
 const basketClearAll = document.querySelector('.basket__clear-all');
+const basketTotalPrice = document.querySelector('.basket__total-price');
 
 function getTextForBasketCounter(number) {
   if (number === 1) {
@@ -151,6 +152,7 @@ function comebackCard(id) {
 function generateBasketCards(arrayBasketCards = []) {
   const list = document.querySelectorAll('.basket-card');
   let counterCards = 0;
+  let totalPrice = 0;
 
   list.forEach(element => {
     element.remove();
@@ -159,11 +161,13 @@ function generateBasketCards(arrayBasketCards = []) {
   arrayBasketCards.forEach(element => {
     if (!element.isDeleted) {
       counterCards += element.counter;
+      totalPrice += element.price * element.counter;
     }
   });
 
   buttonBasket.textContent = counterCards;
   basketCounterValue.textContent = getTextForBasketCounter(counterCards);
+  basketTotalPrice.textContent = totalPrice;
 
   arrayBasketCards.forEach(basketCard => {
     generateBasketCard(basketCard);

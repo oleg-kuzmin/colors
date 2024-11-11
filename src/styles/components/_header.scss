@@ -10,8 +10,9 @@
     min-height: 64px;
     margin: 0 auto;
     border-bottom: 1px solid rgba($color: $text-main, $alpha: 0.06);
+    user-select: none;
     @include media-laptop {
-      justify-content: start; //!
+      justify-content: start;
       max-width: calc(100% - 128px);
       min-height: 104px;
     }
@@ -28,7 +29,7 @@
       margin-right: 64px;
     }
     @include media-laptop-L {
-      margin-right: 171px; //!
+      margin-right: 171px;
     }
   }
 
@@ -38,14 +39,14 @@
       display: revert;
     }
     @include media-laptop {
-      margin-right: auto; //!
+      margin-right: auto;
     }
   }
 
   &__link-callback-tel {
     display: none;
     @include media-laptop-L {
-      display: flex; //!
+      display: flex;
       margin-right: 117px;
     }
   }
