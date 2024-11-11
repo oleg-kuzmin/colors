@@ -1,5 +1,5 @@
-mixin card(src='', title='', price='', className)
-  div(class=['card', className])
+mixin card(id='', src='', title='', price='', className)
+  article(class=['card', className], id=id)
     img.card__image(src=src, alt=title)
     p.card__description #{ title }
     .card__footer

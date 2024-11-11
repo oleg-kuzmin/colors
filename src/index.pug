@@ -10,7 +10,6 @@ include ./pug-components/logo
 include ./pug-components/navigation
 include ./pug-components/products
 include ./pug-components/ui-icons
-include ./mock/data.pug
 
 doctype html
 html(lang='ru')
@@ -28,7 +27,7 @@ html(lang='ru')
       +button-basket('header__button-basket')
     main
       +hero
-      +products(catalog)
+      +products
       +cart
       template#card
         +card

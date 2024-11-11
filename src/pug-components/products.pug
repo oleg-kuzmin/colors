@@ -14,4 +14,4 @@ mixin products(arrayProducts=[], className)
         +modal-sort
       .products__cards
         each item in arrayProducts
-          +card(item.image, item.title, item.price)
+          +card(item.id, item.image, item.title, item.price)
