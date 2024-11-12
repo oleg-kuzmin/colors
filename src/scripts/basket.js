@@ -30,7 +30,7 @@ export function incrementCard(objectCard) {
   patchBasketInfo(basket);
 }
 
-export function decrementCard(objectCard) {
+function decrementCard(objectCard) {
   if (objectCard.counter > 1) {
     basket = basket.map(card => {
       if (card.id === objectCard.id) {
@@ -48,7 +48,7 @@ export function decrementCard(objectCard) {
   }
 }
 
-export function deleteCard(objectCard) {
+function deleteCard(objectCard) {
   basket = basket.map(card => {
     if (card.id === objectCard.id) {
       const newCard = { ...card, isDeleted: true };
@@ -62,7 +62,7 @@ export function deleteCard(objectCard) {
   patchBasketInfo(basket);
 }
 
-export function repeatCard(objectCard) {
+function repeatCard(objectCard) {
   basket = basket.map(card => {
     if (card.id === objectCard.id) {
       const newCard = { ...card, isDeleted: false };
@@ -127,7 +127,7 @@ basketPanelClearAll.addEventListener('click', () => {
   closeBasket();
 });
 
-export function clearAllProductCounters() {
+function clearAllProductCounters() {
   const cardCounterList = document.querySelectorAll('.card__counter');
   cardCounterList.forEach(cardCounter => {
     cardCounter.textContent = 0;

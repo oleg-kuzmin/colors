@@ -41,14 +41,14 @@ export function patchBasketInfo(basket) {
   basketTotalPrice.textContent = totalPrice;
 }
 
-export function clearBasketCards() {
+function clearBasketCards() {
   const list = document.querySelectorAll('.basket-card');
   list.forEach(element => {
     element.remove();
   });
 }
 
-export function addBasketCardToDom(basketCard) {
+function addBasketCardToDom(basketCard) {
   containerBasketCards.append(basketCard);
 }
 
