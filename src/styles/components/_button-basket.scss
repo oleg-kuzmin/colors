@@ -12,6 +12,7 @@
   background-color: $ui-main;
   cursor: pointer;
   transition: opacity $hover;
+  color: $text-main;
   @include font-medium(12px, 0.06em);
 
   &:hover {

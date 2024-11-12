@@ -3,6 +3,7 @@
 .button-filters {
   border: none;
   background-color: $background-main;
+  color: $text-main;
   text-transform: uppercase;
   cursor: pointer;
   @include font-medium(12px, 0.06em);
