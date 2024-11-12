@@ -29,11 +29,6 @@ export function createProductCard(objectCard) {
   const newProductCardDescription = newProductCard.querySelector('.card__description');
   const newProductCardPrice = newProductCard.querySelector('.card__price');
   const newProductCardButtonPlus = newProductCard.querySelector('.card__button');
-  newProductCard.dataset.isNew = objectCard.isNew;
-  newProductCard.dataset.inStock = objectCard.inStock;
-  newProductCard.dataset.isContract = objectCard.isContract;
-  newProductCard.dataset.isExclusive = objectCard.isExclusive;
-  newProductCard.dataset.isSale = objectCard.isSale;
   newProductCard.id = `card-${objectCard.id}`;
   newProductCardImage.src = objectCard.image;
   newProductCardImage.alt = objectCard.title;

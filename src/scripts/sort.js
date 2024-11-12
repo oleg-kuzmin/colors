@@ -1,15 +1,6 @@
 import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
 import { addProductCardToDom } from './section';
-import {
-  sortButton,
-  sortContent,
-  sortButtonText,
-  sortContentButtons,
-  buttonSortExpensive,
-  buttonSortInexpensive,
-  buttonSortPopular,
-  buttonSortNew,
-} from './variables';
+import { sortButton, sortContent, sortButtonText, sortContentButtons } from './variables';
 
 function openSort() {
   openWrapperBackground();
@@ -40,8 +31,30 @@ function handleClick(evt) {
     });
     evt.target.classList.add('sort__content-button_active');
     sortButtonText.textContent = evt.target.textContent;
+    domSort(evt.target.textContent);
   }
   closeSort();
+}
+
+export function domSort(textContent) {
+  switch (textContent.toLowerCase()) {
+    case 'сначала дорогие':
+      sortExpensive();
+      break;
+    case 'сначала недорогие':
+      sortInexpensive();
+      break;
+    case 'сначала популярные':
+      sortPopular();
+      break;
+    case 'сначала новые':
+      sortNew();
+      break;
+    default:
+      sortButtonText.textContent = 'сначала дорогие';
+      sortExpensive();
+      break;
+  }
 }
 
 function setSortEventListeners() {
@@ -105,19 +118,3 @@ function sortNew() {
     addProductCardToDom(productCard);
   });
 }
-
-buttonSortExpensive.addEventListener('click', () => {
-  sortExpensive();
-});
-
-buttonSortInexpensive.addEventListener('click', () => {
-  sortInexpensive();
-});
-
-buttonSortPopular.addEventListener('click', () => {
-  sortPopular();
-});
-
-buttonSortNew.addEventListener('click', () => {
-  sortNew();
-});

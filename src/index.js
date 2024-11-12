@@ -1,6 +1,5 @@
 import './index.scss';
 import './scripts/swiper';
-import './scripts/sort';
 import './scripts/filters';
 import { initProducts, createProductCard } from './scripts/products';
 import {
@@ -11,7 +10,8 @@ import {
   clearProductCards,
 } from './scripts/section';
 import { basket } from './scripts/basket';
-import { checkBoxList } from './scripts/variables';
+import { checkBoxList, sortButtonText } from './scripts/variables';
+import { domSort } from './scripts/sort';
 
 let loadedProducts = [];
 let productsFilters = [];
@@ -55,5 +55,6 @@ checkBoxList.forEach(input => {
       patchBasketCards(basket);
       patchBasketInfo(basket);
     });
+    domSort(sortButtonText.textContent);
   });
 });

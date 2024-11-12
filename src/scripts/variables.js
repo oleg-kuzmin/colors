@@ -1,10 +1,6 @@
 export const basketPanel = document.querySelector('.basket');
 export const basketPanelButtonClose = document.querySelector('.basket__button-close');
 export const buttonBasket = document.querySelector('.button-basket');
-export const buttonSortExpensive = document.querySelector('#buttonSortExpensive');
-export const buttonSortInexpensive = document.querySelector('#buttonSortInexpensive');
-export const buttonSortNew = document.querySelector('#buttonSortNew');
-export const buttonSortPopular = document.querySelector('#buttonSortPopular');
 export const containerBasketCards = document.querySelector('.basket__cards-container');
 export const containerProductsCards = document.querySelector('.products__cards');
 export const productsCounter = document.querySelector('.products__counter');
