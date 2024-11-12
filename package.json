@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "build": "rm -rf build && webpack --mode=production",
-    "dev": "webpack serve --mode=development"
+    "dev": "webpack serve --mode=development",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "keywords": [],
   "author": "Oleg Kuzmin",
@@ -16,6 +18,7 @@
     "@prettier/plugin-pug": "^3.2.0",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
+    "gh-pages": "^6.2.0",
     "html-webpack-plugin": "^5.6.3",
     "mini-css-extract-plugin": "^2.9.2",
     "postcss": "^8.4.47",
