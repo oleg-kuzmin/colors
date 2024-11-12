@@ -1,55 +1,79 @@
-import { getTextForCounter } from './helpers';
+import {
+  buttonBasket,
+  basketPanel,
+  basketPanelButtonClose,
+  templateBasketCard,
+  basketPanelClearAll,
+} from './variables';
 import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
-import { productsCards } from './products';
-import { catalog } from './mock';
+import { patchProductCard, patchBasketInfo, patchBasketCards } from './section';
 
-const buttonBasket = document.querySelector('.button-basket');
-const cartPanel = document.querySelector('.basket');
-const cartButtonClose = document.querySelector('.basket__button-close');
-const templateBasketCard = document.querySelector('#basket-card');
-const basketCardsContainer = document.querySelector('.basket__cards-container');
-const basketCounterValue = document.querySelector('.basket__counter-value');
-const basketClearAll = document.querySelector('.basket__clear-all');
-const basketTotalPrice = document.querySelector('.basket__total-price');
+export let basket = JSON.parse(localStorage.getItem('basket')) || [];
 
-let basket = JSON.parse(localStorage.getItem('basketCards')) || [];
-updateDom(basket);
-
-productsCards.addEventListener('click', evt => {
-  if (evt.target.classList.contains('card__button')) {
-    const searchProduct = evt.target.closest('.card');
-    const searchProductId = +searchProduct.id.split('-')[1];
-    const searchIndex = catalog.findIndex(item => item.id === searchProductId);
-    addToBasket(catalog[searchIndex]);
+export function incrementCard(objectCard) {
+  if (basket.findIndex(item => item.id === objectCard.id) !== -1) {
+    basket = basket.map(card => {
+      if (card.id === objectCard.id) {
+        const newCard = { ...card, counter: card.counter + 1, isDeleted: false };
+        patchProductCard(newCard);
+        return newCard;
+      } else {
+        return card;
+      }
+    });
+  } else {
+    const newCard = { ...objectCard, counter: 1 };
+    patchProductCard(newCard);
+    basket.push(newCard);
   }
-});
+  patchBasketCards(basket);
+  patchBasketInfo(basket);
+}
 
-function generateBasketCards(arrayBasketCards = []) {
-  arrayBasketCards.forEach(basketCard => {
-    generateBasketCard(basketCard);
+export function decrementCard(objectCard) {
+  if (objectCard.counter > 1) {
+    basket = basket.map(card => {
+      if (card.id === objectCard.id) {
+        const newCard = { ...card, counter: card.counter - 1 };
+        patchProductCard(newCard);
+        return newCard;
+      } else {
+        return card;
+      }
+    });
+    patchBasketCards(basket);
+    patchBasketInfo(basket);
+  } else {
+    deleteCard(objectCard);
+  }
+}
+
+export function deleteCard(objectCard) {
+  basket = basket.map(card => {
+    if (card.id === objectCard.id) {
+      const newCard = { ...card, isDeleted: true };
+      patchProductCard(newCard);
+      return newCard;
+    } else {
+      return card;
+    }
   });
+  patchBasketCards(basket);
+  patchBasketInfo(basket);
 }
 
-function generateProductCards(arrayBasketCards = []) {
-  arrayBasketCards.forEach(basketCard => {
-    setProducts(basketCard);
+export function repeatCard(objectCard) {
+  basket = basket.map(card => {
+    if (card.id === objectCard.id) {
+      const newCard = { ...card, isDeleted: false };
+      patchProductCard(newCard);
+      return newCard;
+    } else {
+      return card;
+    }
   });
-}
-
-function openBasket() {
-  cartPanel.classList.add('basket_opened');
-  openWrapperBackground();
-  setTimeout(() => {
-    document.addEventListener('click', handleClickWrapper);
-    document.addEventListener('keydown', handleEscKeyboard);
-  }, 0);
-}
-
-function closeBasket() {
-  cartPanel.classList.remove('basket_opened');
-  closeWrapperBackground();
-  document.removeEventListener('click', handleClickWrapper);
-  document.removeEventListener('keydown', handleEscKeyboard);
+  patchBasketCards(basket);
+  patchBasketInfo(basket);
 }
 
 function handleClickWrapper(evt) {
@@ -64,165 +88,89 @@ function handleEscKeyboard(evt) {
   }
 }
 
+function sanitizeBasket() {
+  basket = basket.filter(card => card.isDeleted === false);
+  patchBasketCards(basket);
+  patchBasketInfo(basket);
+}
+
+function openBasket() {
+  basketPanel.classList.add('basket_opened');
+  openWrapperBackground();
+  setTimeout(() => {
+    document.addEventListener('click', handleClickWrapper);
+    document.addEventListener('keydown', handleEscKeyboard);
+  }, 0);
+}
+
+function closeBasket() {
+  basketPanel.classList.remove('basket_opened');
+  closeWrapperBackground();
+  document.removeEventListener('click', handleClickWrapper);
+  document.removeEventListener('keydown', handleEscKeyboard);
+  sanitizeBasket();
+}
+
 buttonBasket.addEventListener('click', () => {
   openBasket();
 });
 
-cartButtonClose.addEventListener('click', () => {
+basketPanelButtonClose.addEventListener('click', () => {
   closeBasket();
 });
 
-basketClearAll.addEventListener('click', () => {
-  closeBasket();
+basketPanelClearAll.addEventListener('click', () => {
   basket = [];
-  updateDom(basket);
+  patchBasketCards(basket);
+  patchBasketInfo(basket);
+  clearAllProductCounters();
+  closeBasket();
+});
+
+export function clearAllProductCounters() {
   const cardCounterList = document.querySelectorAll('.card__counter');
   cardCounterList.forEach(cardCounter => {
     cardCounter.textContent = 0;
     cardCounter.classList.add('card__counter_disabled');
   });
-});
-
-export function addToBasket(card) {
-  if (inСart(card.id)) {
-    incrementCardCounter(card.id);
-  } else {
-    addNewCard(card);
-  }
 }
 
-function addNewCard(card) {
-  basket.push({ ...card, counter: 1 });
-  updateDom(basket);
-}
-
-function inСart(id) {
-  return basket.findIndex(item => item.id === id) !== -1;
-}
-
-function setProducts(card) {
-  const searchProductCard = document.querySelector(`#card-${card.id}`);
-  const searchProductCardCounter = searchProductCard.querySelector('.card__counter');
-  searchProductCardCounter.textContent = card.counter;
+export function createBasketCard(card) {
+  const newBasketCard = templateBasketCard.content.querySelector('.basket-card').cloneNode(true);
+  const newBasketCardImage = newBasketCard.querySelector('.basket-card__image');
+  const newBasketCardTitle = newBasketCard.querySelector('.basket-card__title');
+  const newBasketCardPrice = newBasketCard.querySelector('.basket-card__price');
+  const newBasketCardCounter = newBasketCard.querySelector('.basket-card__counter');
+  const newBasketCardButtonPlus = newBasketCard.querySelector('.basket-card__plus');
+  const newBasketCardButtonMinus = newBasketCard.querySelector('.basket-card__minus');
+  const newBasketCardButtonDelete = newBasketCard.querySelector('.basket-card__delete');
+  const newBasketCardButtonRepeat = newBasketCard.querySelector('.basket-card__repeat');
+  newBasketCard.id = `basketCard-${card.id}`;
+  newBasketCardImage.src = card.image;
+  newBasketCardImage.alt = card.title;
+  newBasketCardTitle.textContent = card.title;
+  newBasketCardPrice.textContent = card.price * card.counter;
+  newBasketCardCounter.textContent = card.counter;
   if (card.isDeleted) {
-    searchProductCardCounter.classList.add('card__counter_disabled');
+    newBasketCardButtonPlus.disabled = true;
+    newBasketCardButtonMinus.disabled = true;
+    newBasketCard.classList.add('basket-card_deleted');
   } else {
-    searchProductCardCounter.classList.remove('card__counter_disabled');
+    newBasketCardButtonPlus.disabled = false;
+    newBasketCardButtonMinus.disabled = false;
+    newBasketCard.classList.remove('basket-card_deleted');
   }
-}
-
-function generateBasketCard(card) {
-  const clone = templateBasketCard.content.querySelector('.basket-card').cloneNode(true);
-  const cloneImage = clone.querySelector('.basket-card__image');
-  const cloneTitle = clone.querySelector('.basket-card__title');
-  const clonePrice = clone.querySelector('.basket-card__price');
-  const cloneCounter = clone.querySelector('.basket-card__counter');
-  const cloneButtonRepeat = clone.querySelector('.basket-card__repeat');
-  const cloneButtonDelete = clone.querySelector('.basket-card__delete');
-  const cloneButtonPlus = clone.querySelector('.basket-card__plus');
-  const cloneButtonMinus = clone.querySelector('.basket-card__minus');
-
-  clone.id = `basketCard-${card.id}`;
-  cloneImage.src = card.image;
-  cloneImage.alt = card.title;
-  cloneTitle.textContent = card.title;
-  clonePrice.textContent = card.price * card.counter;
-  cloneCounter.textContent = card.counter;
-
-  if (card.isDeleted) {
-    cloneButtonPlus.disabled = true;
-    cloneButtonMinus.disabled = true;
-    clone.classList.add('basket-card_deleted');
-  } else {
-    cloneButtonPlus.disabled = false;
-    cloneButtonMinus.disabled = false;
-    clone.classList.remove('basket-card_deleted');
-  }
-
-  cloneButtonDelete.addEventListener('click', () => {
-    deleteCard(card.id);
+  newBasketCardButtonPlus.addEventListener('click', () => {
+    incrementCard(card);
   });
-
-  cloneButtonRepeat.addEventListener('click', () => {
-    comebackCard(card.id);
+  newBasketCardButtonMinus.addEventListener('click', () => {
+    decrementCard(card);
   });
-
-  cloneButtonPlus.addEventListener('click', () => {
-    incrementCardCounter(card.id);
+  newBasketCardButtonDelete.addEventListener('click', () => {
+    deleteCard(card);
   });
-
-  cloneButtonMinus.addEventListener('click', () => {
-    if (card.counter > 1) {
-      decrementCardCounter(card.id);
-    } else {
-      deleteCard(card.id);
-    }
+  newBasketCardButtonRepeat.addEventListener('click', () => {
+    repeatCard(card);
   });
-
-  basketCardsContainer.append(clone);
-}
-
-function decrementCardCounter(id) {
-  basket = basket.map(card => {
-    if (card.id === id) {
-      return { ...card, counter: card.counter - 1 };
-    } else {
-      return card;
-    }
-  });
-  updateDom(basket);
-}
-
-function incrementCardCounter(id) {
-  basket = basket.map(card => {
-    if (card.id === id) {
-      return { ...card, counter: card.counter + 1, isDeleted: false };
-    } else {
-      return card;
-    }
-  });
-  updateDom(basket);
-}
-
-function deleteCard(id) {
-  basket = basket.map(card => {
-    if (card.id === id) {
-      return { ...card, isDeleted: true };
-    } else {
-      return card;
-    }
-  });
-  updateDom(basket);
-}
-
-function comebackCard(id) {
-  basket = basket.map(card => {
-    if (card.id === id) {
-      return { ...card, isDeleted: false };
-    } else {
-      return card;
-    }
-  });
-  updateDom(basket);
-}
-
-function updateDom(arrayBasketCards = []) {
-  const list = document.querySelectorAll('.basket-card');
-  let counterCards = 0;
-  let totalPrice = 0;
-  list.forEach(element => {
-    element.remove();
-  });
-  arrayBasketCards.forEach(element => {
-    if (!element.isDeleted) {
-      counterCards += element.counter;
-      totalPrice += element.price * element.counter;
-    }
-  });
-  buttonBasket.textContent = counterCards;
-  basketCounterValue.textContent = getTextForCounter(counterCards);
-  basketTotalPrice.textContent = totalPrice;
-  generateBasketCards(arrayBasketCards);
-  generateProductCards(arrayBasketCards);
-  localStorage.setItem('basketCards', JSON.stringify(arrayBasketCards));
+  return newBasketCard;
 }

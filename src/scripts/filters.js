@@ -1,7 +1,5 @@
 import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
-
-const buttonFilters = document.querySelector('.button-filters');
-const filters = document.querySelector('.filters');
+import { buttonFilters, filters } from './variables';
 
 function handleClick(evt) {
   if (evt.target.classList.contains('wrapper-background')) {

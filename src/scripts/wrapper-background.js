@@ -1,4 +1,4 @@
-const wrapperBackground = document.querySelector('.wrapper-background');
+import { wrapperBackground } from './variables';
 
 export function openWrapperBackground() {
   wrapperBackground.classList.add('wrapper-background_opened');

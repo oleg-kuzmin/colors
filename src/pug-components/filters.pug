@@ -4,8 +4,8 @@ mixin filters(className)
   div(class=['filters', className])
     .filters__line
     .filters__content
-      +filter-checkbox('filterNew', 'Новинки') 
-      +filter-checkbox('filterStock', 'Есть в наличии') 
-      +filter-checkbox('filterContract', 'Контрактные') 
-      +filter-checkbox('filterExcluzive', 'Эксклюзивные') 
-      +filter-checkbox('filterSale', 'Распродажа') 
+      +filter-checkbox('isNew', 'Новинки') 
+      +filter-checkbox('inStock', 'Есть в наличии') 
+      +filter-checkbox('isContract', 'Контрактные') 
+      +filter-checkbox('isExclusive', 'Эксклюзивные') 
+      +filter-checkbox('isSale', 'Распродажа') 

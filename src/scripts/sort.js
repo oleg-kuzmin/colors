@@ -1,9 +1,15 @@
 import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
-
-const sortButton = document.querySelector('.sort__button');
-const sortContent = document.querySelector('.sort__content');
-const sortButtonText = sortButton.querySelector('.sort__button-text');
-const sortContentButtons = document.querySelectorAll('.sort__content-button');
+import { addProductCardToDom } from './section';
+import {
+  sortButton,
+  sortContent,
+  sortButtonText,
+  sortContentButtons,
+  buttonSortExpensive,
+  buttonSortInexpensive,
+  buttonSortPopular,
+  buttonSortNew,
+} from './variables';
 
 function openSort() {
   openWrapperBackground();
@@ -54,4 +60,64 @@ function removeSortEventListeners() {
 
 sortButton.addEventListener('click', () => {
   openSort();
+});
+
+function sortExpensive() {
+  const arrayProductCards = Array.from(document.querySelectorAll('.card'));
+  arrayProductCards.sort((a, b) => {
+    return b.querySelector('.card__price').textContent - a.querySelector('.card__price').textContent;
+  });
+  arrayProductCards.forEach(productCard => {
+    addProductCardToDom(productCard);
+  });
+}
+
+function sortInexpensive() {
+  const arrayProductCards = Array.from(document.querySelectorAll('.card'));
+  arrayProductCards.sort((a, b) => {
+    return a.querySelector('.card__price').textContent - b.querySelector('.card__price').textContent;
+  });
+  arrayProductCards.forEach(productCard => {
+    addProductCardToDom(productCard);
+  });
+}
+
+function sortPopular() {
+  const arrayProductCards = Array.from(document.querySelectorAll('.card'));
+  arrayProductCards.sort((a, b) => {
+    const idA = +a.id.split('-')[1];
+    const idB = +b.id.split('-')[1];
+    return idA - idB;
+  });
+  arrayProductCards.forEach(productCard => {
+    addProductCardToDom(productCard);
+  });
+}
+
+function sortNew() {
+  const arrayProductCards = Array.from(document.querySelectorAll('.card'));
+  arrayProductCards.sort((a, b) => {
+    const idA = +a.id.split('-')[1];
+    const idB = +b.id.split('-')[1];
+    return idB - idA;
+  });
+  arrayProductCards.forEach(productCard => {
+    addProductCardToDom(productCard);
+  });
+}
+
+buttonSortExpensive.addEventListener('click', () => {
+  sortExpensive();
+});
+
+buttonSortInexpensive.addEventListener('click', () => {
+  sortInexpensive();
+});
+
+buttonSortPopular.addEventListener('click', () => {
+  sortPopular();
+});
+
+buttonSortNew.addEventListener('click', () => {
+  sortNew();
 });
