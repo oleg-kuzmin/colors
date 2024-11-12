@@ -5,7 +5,7 @@ include ./filters
 include ./sort
 
 mixin products(arrayProducts=[], className)
-  section(class=['products', className])
+  div(class=['products', className])
     +filters('products__filters')
     .products__main
       .products__buttons
