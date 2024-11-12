@@ -1,8 +1,8 @@
 import './index.scss';
-import './scripts/basket';
-import './scripts/filters-mobile';
 import './scripts/mock';
+import './scripts/swiper';
 import './scripts/products';
 import './scripts/sort';
-import './scripts/swiper';
+import './scripts/filters';
 import './scripts/wrapper-background';
+import './scripts/basket';

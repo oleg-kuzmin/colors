@@ -2,7 +2,7 @@ include ./button-filters
 include ./card
 include ./filter-checkbox
 include ./filters
-include ./modal-sort
+include ./sort
 
 mixin products(arrayProducts=[], className)
   section(class=['products', className])
@@ -11,7 +11,7 @@ mixin products(arrayProducts=[], className)
       .products__buttons
         +button-filters('products__button-filters') 
         span.products__counter #{ arrayProducts.length } товаров
-        +modal-sort
+        +sort
       .products__cards
         each item in arrayProducts
           +card(item.id, item.image, item.title, item.price)

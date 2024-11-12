@@ -1,44 +1,44 @@
 import { closeWrapperBackground, openWrapperBackground } from './wrapper-background';
 
-const modalSortButton = document.querySelector('.modal-sort__button');
-const modalSortContent = document.querySelector('.modal-sort__content');
-const modalSortButtonText = modalSortButton.querySelector('.modal-sort__button-text');
-const modalSortContentButtons = document.querySelectorAll('.modal-sort__content-button');
+const sortButton = document.querySelector('.sort__button');
+const sortContent = document.querySelector('.sort__content');
+const sortButtonText = sortButton.querySelector('.sort__button-text');
+const sortContentButtons = document.querySelectorAll('.sort__content-button');
 
-function openModalSort() {
+function openSort() {
   openWrapperBackground();
-  modalSortContent.classList.add('modal-sort__content_opened');
-  setModalEventListeners();
+  sortContent.classList.add('sort__content_opened');
+  setSortEventListeners();
 }
 
-function closeModalSort() {
+function closeSort() {
   closeWrapperBackground();
-  modalSortContent.classList.remove('modal-sort__content_opened');
-  removeModalEventListeners();
+  sortContent.classList.remove('sort__content_opened');
+  removeSortEventListeners();
 }
 
 function handleScroll() {
-  closeModalSort();
+  closeSort();
 }
 
 function handleEscKeyboard(evt) {
   if (evt.code === 'Escape') {
-    closeModalSort();
+    closeSort();
   }
 }
 
 function handleClick(evt) {
-  if (evt.target.classList.contains('modal-sort__content-button')) {
-    modalSortContentButtons.forEach(button => {
-      button.classList.remove('modal-sort__content-button_active');
+  if (evt.target.classList.contains('sort__content-button')) {
+    sortContentButtons.forEach(button => {
+      button.classList.remove('sort__content-button_active');
     });
-    evt.target.classList.add('modal-sort__content-button_active');
-    modalSortButtonText.textContent = evt.target.textContent;
+    evt.target.classList.add('sort__content-button_active');
+    sortButtonText.textContent = evt.target.textContent;
   }
-  closeModalSort();
+  closeSort();
 }
 
-function setModalEventListeners() {
+function setSortEventListeners() {
   setTimeout(() => {
     document.addEventListener('click', handleClick);
     document.addEventListener('keydown', handleEscKeyboard);
@@ -46,12 +46,12 @@ function setModalEventListeners() {
   }, 0);
 }
 
-function removeModalEventListeners() {
+function removeSortEventListeners() {
   document.removeEventListener('click', handleClick);
   document.removeEventListener('keydown', handleEscKeyboard);
   document.removeEventListener('scroll', handleScroll);
 }
 
-modalSortButton.addEventListener('click', () => {
-  openModalSort();
+sortButton.addEventListener('click', () => {
+  openSort();
 });

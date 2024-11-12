@@ -1,0 +1,18 @@
+include ./wrapper-background
+
+mixin sort(className)
+  div(class=['sort', className])
+    button.sort__button
+      span.sort__button-text Сначала дорогие
+      span.sort__button-arrow
+    +wrapper-background 
+    .sort__content
+      ul.sort__content-list
+        li
+          button#buttonSortExpensive.sort__content-button.sort__content-button_active Сначала дорогие
+        li
+          button#buttonSortInexpensive.sort__content-button Сначала недорогие
+        li
+          button#buttonSortPopular.sort__content-button Сначала популярные
+        li
+          button#buttonSortNew.sort__content-button Сначала новые
