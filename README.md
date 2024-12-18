@@ -21,8 +21,9 @@ E-commerce сайт на Webpack и Pug для desktop и mobile - продаж�
 - Препроцессор Sass.
 - Используется Flex.
 - Логика на ванильном JS + библиотека Swiper.
+- Загрузка данных с сайта mockapi.io
 
 ## Ссылки
 
 - [Макет Figma](https://www.figma.com/file/qMhAdsVAsaAkfotB13sO8W)
-- [Github Pages](oleg-kuzmin.github.io/colors/)
+- [Github Pages](https://oleg-kuzmin.github.io/colors/)
