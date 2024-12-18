@@ -25,4 +25,4 @@ E-commerce сайт на Webpack и Pug для desktop и mobile - продаж�
 ## Ссылки
 
 - [Макет Figma](https://www.figma.com/file/qMhAdsVAsaAkfotB13sO8W)
-- [Github Pages](https://oleg-kuzmin.github.io/film-camera-repair/)
+- [Github Pages](oleg-kuzmin.github.io/colors/)
