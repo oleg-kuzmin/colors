@@ -1,6 +1,6 @@
 # Colors
 
-E-commerce веб-приложение на JavaScript и Pug (Webpack) - магазин красок. Внешнее api (mock.api) для получения данных.
+E-commerce веб-приложение на JavaScript и Pug (Webpack) - магазин красок. Внешнее api (mockapi.io) для получения данных.
 
 ## Функционал
 
