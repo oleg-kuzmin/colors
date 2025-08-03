@@ -1,7 +1,7 @@
 import { addNewFieldToProducts } from './helpers';
 
 export async function apiGetProducts() {
-  const res = await fetch('https://6732ff9a2a1b1a4ae111a3bd.mockapi.io/api/products', {
+  const res = await fetch('https://6732ff9a2a1b1a4ae111a3bd.mockapi.io/api/colors', {
     method: 'GET',
     headers: { 'content-type': 'application/json' },
   });
